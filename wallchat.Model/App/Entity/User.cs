@@ -20,7 +20,6 @@ namespace wallchat.Model.App.Entity
         public bool EmailConfirmed { get; set; }
 
         public string PhoneNumber { get; set; }
-
         public bool PhoneConfirmed { get; set; }
 
         [ DataType ( DataType.DateTime ) ]

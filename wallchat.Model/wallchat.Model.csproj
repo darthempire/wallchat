@@ -58,6 +58,10 @@
     <Compile Include="Migrations\201703281853149_Initial, add user, client, refreshtoken.Designer.cs">
       <DependentUpon>201703281853149_Initial, add user, client, refreshtoken.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703282122300_changes.cs" />
+    <Compile Include="Migrations\201703282122300_changes.Designer.cs">
+      <DependentUpon>201703282122300_changes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -68,6 +72,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201703281853149_Initial, add user, client, refreshtoken.resx">
       <DependentUpon>201703281853149_Initial, add user, client, refreshtoken.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703282122300_changes.resx">
+      <DependentUpon>201703282122300_changes.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,13 +1,33 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Web.Http;
+using wallchat.Model.App.Entity;
+using wallchat.Service.Contracts;
 
 namespace wallchat.Api.Controllers
 {
     public class ValuesController : ApiController
     {
+        IUserService _userService;
+
+        public ValuesController(IUserService userService)
+        {
+            _userService = userService;
+        }
+
         // GET api/<controller>
         public IEnumerable < string > Get ( )
         {
+
+            var user = new User (  );
+
+            user.Email = "vasya@mail.com";
+            user.PasswordHash = "123456";
+            user.DateRegistration = DateTime.Now;
+            user.UserName = "darthvasya";
+
+            _userService.CreateUser (user);
+
             return new[ ] {"value1", "value2"};
         }
 

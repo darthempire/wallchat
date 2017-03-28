@@ -40,7 +40,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contracts\IUserService.cs" />
+    <Compile Include="Implementations\UserService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\wallchat.DAL\wallchat.DAL.csproj">
+      <Project>{985DA05E-D271-47ED-967D-5803716A687F}</Project>
+      <Name>wallchat.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\wallchat.Model\wallchat.Model.csproj">
+      <Project>{7792D74C-5C8C-42AF-9FEC-75908170FC3F}</Project>
+      <Name>wallchat.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\wallchat.Repository\wallchat.Repository.csproj">
+      <Project>{0CD93B47-872E-454A-BE61-8089A9B3F6B5}</Project>
+      <Name>wallchat.Repository</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

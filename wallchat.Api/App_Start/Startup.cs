@@ -1,20 +1,17 @@
-﻿using System;
-using System.Threading.Tasks;
-using System.Web.Http;
-using Microsoft.Owin;
+﻿using Microsoft.Owin;
 using Owin;
+using wallchat.Api.App_Start;
 
-[assembly: OwinStartup(typeof(wallchat.Api.App_Start.Startup))]
+[ assembly: OwinStartup ( typeof ( Startup ) ) ]
 
 namespace wallchat.Api.App_Start
 {
     public class Startup
     {
-        public void Configuration(IAppBuilder app)
+        public void Configuration ( IAppBuilder app )
         {
-            HttpConfiguration config = new HttpConfiguration();
-            WebApiConfig.Register(config);
-            app.UseWebApi(config);
+            //ConfigureOAuth(app);
+            //app.UseCors(Microsoft.Owin.Cors.CorsOptions.AllowAll);
         }
     }
 }

@@ -1,17 +1,37 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Web;
 using System.Web.Http;
-using System.Web.Routing;
+using System.Web.Http.Dispatcher;
+using Castle.Windsor;
+using wallchat.Api.App.CastleDI;
 
 namespace wallchat.Api
 {
-    public class WebApiApplication : System.Web.HttpApplication
+    public class WebApiApplication : HttpApplication
     {
-        protected void Application_Start()
+        private readonly IWindsorContainer _container;
+
+        public WebApiApplication()
         {
-            GlobalConfiguration.Configure(WebApiConfig.Register);
+            _container =
+                new WindsorContainer ( ).Install (new DependencyInstaller ( ));
+        }
+
+        public override void Dispose ()
+        {
+            _container.Dispose ( );
+            base.Dispose ( );
+        }
+
+        private void Application_Start ( object sender, EventArgs e )
+        {
+            // Code that runs on application startup
+            //AreaRegistration.RegisterAllAreas();
+            GlobalConfiguration.Configure (WebApiConfig.Register);
+            //RouteConfig.RegisterRoutes(RouteTable.Routes);
+            GlobalConfiguration.Configuration.Services.Replace (
+                typeof ( IHttpControllerActivator ),
+                new WindsorActivator (_container));
         }
     }
 }
