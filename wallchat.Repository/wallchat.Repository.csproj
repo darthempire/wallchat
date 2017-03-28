@@ -40,7 +40,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App\Authorization\ClientRepository.cs" />
+    <Compile Include="App\Authorization\RefreshTokenRepository.cs" />
+    <Compile Include="App\Authorization\UserRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\wallchat.DAL\wallchat.DAL.csproj">
+      <Project>{985DA05E-D271-47ED-967D-5803716A687F}</Project>
+      <Name>wallchat.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\wallchat.Model\wallchat.Model.csproj">
+      <Project>{7792D74C-5C8C-42AF-9FEC-75908170FC3F}</Project>
+      <Name>wallchat.Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
