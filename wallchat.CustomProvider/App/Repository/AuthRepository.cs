@@ -1,0 +1,58 @@
+﻿using System;
+using Ninject;
+using wallchat.DAL.App.Contracts;
+using wallchat.DAL.App.Implementations;
+using wallchat.Model.App.Entity;
+using wallchat.Repository.App.Authorization;
+
+namespace wallchat.CustomProvider.App.Repository
+{
+    public class AuthRepository : IDisposable
+    {
+
+        #region Data
+
+        private readonly IClientRepository _clientRepository;
+        private readonly IRefreshTokenRepository _refreshTokenRepository;
+        private readonly IUserRepository _userRepository;
+
+
+        public AuthRepository()
+        {
+            IKernel ninjectKernel = new StandardKernel();
+
+            ninjectKernel.Bind<IDatabaseFactory>().To<DatabaseFactory>();
+            ninjectKernel.Bind<IUnitOfWork>().To<UnitOfWork>();
+
+            ninjectKernel.Bind<IClientRepository>().To<ClientRepository>();
+            ninjectKernel.Bind<IRefreshTokenRepository>().To<RefreshTokenRepository>();
+            ninjectKernel.Bind<IUserRepository>().To<UserRepository>();
+
+            _refreshTokenRepository = ninjectKernel.Get<IRefreshTokenRepository>();
+            _userRepository = ninjectKernel.Get<IUserRepository>();
+            _clientRepository = ninjectKernel.Get<IClientRepository>();
+        }
+
+        #endregion
+
+        #region Helpers
+
+        public void Dispose()
+        {
+            //
+        }
+
+        #endregion
+
+        #region Client
+
+        public Client FindClient ( string clientId )
+        {
+            var client = _clientRepository.GetById (clientId);
+            return client;
+        }
+
+        #endregion
+
+    }
+}

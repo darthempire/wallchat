@@ -5,7 +5,7 @@ using wallchat.Model.App.Entity;
 
 namespace wallchat.Repository.App.Authorization
 {
-    public class ClientRepository : Repository<Client>
+    public class ClientRepository : Repository<Client>, IClientRepository
     {
         private DatabaseContext _dataContext;
 
