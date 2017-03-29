@@ -2,6 +2,7 @@
 using wallchat.Model.App.Entity;
 using wallchat.Repository.App.Authorization;
 using wallchat.Service.Contracts;
+using NLog;
 
 namespace wallchat.Service.Implementations
 {
@@ -21,6 +22,10 @@ namespace wallchat.Service.Implementations
         public User FindUser ( long id )
         {
             var user = _userRepository.GetById (id);
+            var logger = LogManager.GetCurrentClassLogger();
+            logger.Fatal("Fatallity");
+            logger.Error("er");
+            logger.Debug("de");
             return user;
         }
 

@@ -1,0 +1,1 @@
+2017-03-29 13:45:20.3399|DEBUG|wallchat.Service.Implementations.UserService|de

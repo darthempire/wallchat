@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using Ninject;
 using wallchat.Api.Models.User;
 using wallchat.DAL.App.Contracts;
@@ -10,7 +12,6 @@ namespace wallchat.CustomProvider.App.Repository
 {
     public class AuthRepository : IDisposable
     {
-
         #region Data
 
         private readonly IClientRepository _clientRepository;
@@ -72,6 +73,19 @@ namespace wallchat.CustomProvider.App.Repository
             };
 
             _userRepository.Add (newUser);
+        }
+
+        #endregion
+
+        #region RefreshToken
+
+        public void AddRefreshToken ( RefreshToken token )
+        {
+        }
+
+        public List<RefreshToken> GetAllRefreshTokens()
+        {
+            return _refreshTokenRepository.GetAll( ).ToList( );
         }
 
         #endregion

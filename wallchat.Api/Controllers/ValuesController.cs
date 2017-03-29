@@ -19,16 +19,18 @@ namespace wallchat.Api.Controllers
         public IEnumerable < string > Get ( )
         {
 
-            var user = new User (  );
+            //var user = new User (  );
 
-            user.Email = "vasya@mail.com";
-            user.PasswordHash = "123456";
-            user.DateRegistration = DateTime.Now;
-            user.UserName = "darthvasya";
+            //user.Email = "vasya@mail.com";
+            //user.PasswordHash = "123456";
+            //user.DateRegistration = DateTime.Now;
+            //user.UserName = "darthvasya";
 
-            _userService.CreateUser (user);
+            //_userService.CreateUser (user);
 
-            return new[ ] {"value1", "value2"};
+            var user = _userService.FindUser(1);
+
+            return new[ ] {"value1", "value2", user.Email.ToString()};
         }
 
         // GET api/<controller>/5
