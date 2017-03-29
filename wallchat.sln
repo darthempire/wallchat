@@ -29,6 +29,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wallchat.Api", "wallchat.Ap
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wallchat.CustomProvider", "wallchat.CustomProvider\wallchat.CustomProvider.csproj", "{585C6350-B3BD-4C17-8B73-D554FD492D5D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wallchat.Helpers", "wallchat.Helpers\wallchat.Helpers.csproj", "{52B09684-2134-4C2E-A87D-C74902CE7AD5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,6 +61,10 @@ Global
 		{585C6350-B3BD-4C17-8B73-D554FD492D5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{585C6350-B3BD-4C17-8B73-D554FD492D5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{585C6350-B3BD-4C17-8B73-D554FD492D5D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52B09684-2134-4C2E-A87D-C74902CE7AD5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52B09684-2134-4C2E-A87D-C74902CE7AD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52B09684-2134-4C2E-A87D-C74902CE7AD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52B09684-2134-4C2E-A87D-C74902CE7AD5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -75,5 +81,6 @@ Global
 		{A46696CD-EFF6-4ABA-A786-C235943FE63E} = {7A458AF3-1935-4E66-8AE6-424EC28730A9}
 		{A46B9C97-027D-4009-A1D8-4A6F70612021} = {7056CEC5-42F8-4251-B062-2C33143F258E}
 		{585C6350-B3BD-4C17-8B73-D554FD492D5D} = {EBC2B240-66BF-4396-8E4D-C512D946F5F6}
+		{52B09684-2134-4C2E-A87D-C74902CE7AD5} = {977D13D1-3DA4-4D9F-B8EE-249C9C479D94}
 	EndGlobalSection
 EndGlobal

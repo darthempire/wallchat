@@ -65,6 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App\Core\SimpleAuthorizationServerProvider.cs" />
+    <Compile Include="App\Core\SimpleRefreshTokenProvider.cs" />
     <Compile Include="App\Repository\AuthRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
