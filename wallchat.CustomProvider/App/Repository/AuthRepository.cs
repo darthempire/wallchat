@@ -86,16 +86,27 @@ namespace wallchat.CustomProvider.App.Repository
 
         #region RefreshToken
 
-        public void AddRefreshToken ( RefreshToken token )
+        public bool AddRefreshToken ( RefreshToken token )
         {
-            _refreshTokenRepository.Add (token);
+            _refreshTokenRepository.Add(token);
+            return true;
         }
 
-        public List<RefreshToken> GetAllRefreshTokens()
+        private List<RefreshToken> GetAllRefreshTokens()
         {
             return _refreshTokenRepository.GetAll( ).ToList( );
         }
 
+        public RefreshToken GetRefreshToken(string id)
+        {
+            return _refreshTokenRepository.GetById (id);
+        }
+
+        public bool RemoveRefreshToken ( string id )
+        {
+            _refreshTokenRepository.Delete (GetAllRefreshTokens ( ).FirstOrDefault(p => p.Id == id));
+            return true;
+        }
         #endregion
     }
 }
