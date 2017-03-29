@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App\DTO\UserDTO.cs" />
     <Compile Include="App\EF\DatabaseContext.cs" />
     <Compile Include="App\Entity\Client.cs" />
     <Compile Include="App\Entity\RefreshToken.cs" />

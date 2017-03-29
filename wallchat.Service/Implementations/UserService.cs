@@ -1,5 +1,7 @@
-﻿using NLog;
+﻿using System;
+using NLog;
 using wallchat.DAL.App.Contracts;
+using wallchat.Model.App.DTO;
 using wallchat.Model.App.Entity;
 using wallchat.Repository.App.Authorization;
 using wallchat.Service.Contracts;
@@ -31,9 +33,20 @@ namespace wallchat.Service.Implementations
             return user;
         }
 
-        public void CreateUser ( User user )
+        public void CreateUser ( RegisterUserDTO userDto)
         {
-            _userRepository.Add (user);
+            var user = new User();
+
+            if (userDto != null)
+            {
+                user.UserName = userDto.UserName;
+                user.PasswordHash = userDto.PasswordHash;
+                user.PhoneNumber = userDto.PhoneNumber;
+                user.Email = userDto.Email;
+                user.DateRegistration = DateTime.Now;
+
+                _userRepository.Add(user);
+            }
         }
     }
 }
