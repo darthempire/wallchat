@@ -12,31 +12,6 @@ namespace wallchat.CustomProvider.App.Repository
 {
     public class AuthRepository : IDisposable
     {
-        #region Data
-
-        private readonly IClientRepository _clientRepository;
-        private readonly IRefreshTokenRepository _refreshTokenRepository;
-        private readonly IUserRepository _userRepository;
-
-
-        public AuthRepository()
-        {
-            IKernel ninjectKernel = new StandardKernel();
-
-            ninjectKernel.Bind<IDatabaseFactory>().To<DatabaseFactory>();
-            ninjectKernel.Bind<IUnitOfWork>().To<UnitOfWork>();
-
-            ninjectKernel.Bind<IClientRepository>().To<ClientRepository>();
-            ninjectKernel.Bind<IRefreshTokenRepository>().To<RefreshTokenRepository>();
-            ninjectKernel.Bind<IUserRepository>().To<UserRepository>();
-
-            _refreshTokenRepository = ninjectKernel.Get<IRefreshTokenRepository>();
-            _userRepository = ninjectKernel.Get<IUserRepository>();
-            _clientRepository = ninjectKernel.Get<IClientRepository>();
-        }
-
-        #endregion
-
         #region Helpers
 
         public void Dispose()
@@ -56,15 +31,47 @@ namespace wallchat.CustomProvider.App.Repository
 
         #endregion
 
-        #region User
+        #region Data
 
-        public User FindUser ( long id )
+        private readonly IClientRepository _clientRepository;
+        private readonly IRefreshTokenRepository _refreshTokenRepository;
+        private readonly IUserRepository _userRepository;
+
+
+        public AuthRepository()
         {
-            var user = _userRepository.GetById (id);
+            IKernel ninjectKernel = new StandardKernel( );
+
+            ninjectKernel.Bind<IDatabaseFactory>( ).To<DatabaseFactory>( );
+            ninjectKernel.Bind<IUnitOfWork>( ).To<UnitOfWork>( );
+
+            ninjectKernel.Bind<IClientRepository>( ).To<ClientRepository>( );
+            ninjectKernel.Bind<IRefreshTokenRepository>( ).To<RefreshTokenRepository>( );
+            ninjectKernel.Bind<IUserRepository>( ).To<UserRepository>( );
+
+            _refreshTokenRepository = ninjectKernel.Get<IRefreshTokenRepository>( );
+            _userRepository = ninjectKernel.Get<IUserRepository>( );
+            _clientRepository = ninjectKernel.Get<IClientRepository>( );
+        }
+
+        #endregion
+
+        #region Users
+
+        private IEnumerable<User> AllUsers => _userRepository.GetAll().ToList();
+
+        public User FindUser(string userName, string passwordHash)
+        {
+            return AllUsers.FirstOrDefault(p => p.UserName == userName && p.PasswordHash == passwordHash);
+        }
+
+        public User FindUser(long id)
+        {
+            var user = _userRepository.GetById(id);
             return user;
         }
 
-        public void RegisterUser ( UserModel user )
+        public void RegisterUser(UserModel user)
         {
             var newUser = new User
             {
@@ -72,7 +79,7 @@ namespace wallchat.CustomProvider.App.Repository
                 PasswordHash = user.Password
             };
 
-            _userRepository.Add (newUser);
+            _userRepository.Add(newUser);
         }
 
         #endregion
@@ -81,6 +88,7 @@ namespace wallchat.CustomProvider.App.Repository
 
         public void AddRefreshToken ( RefreshToken token )
         {
+            _refreshTokenRepository.Add (token);
         }
 
         public List<RefreshToken> GetAllRefreshTokens()
