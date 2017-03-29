@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using Ninject;
-using wallchat.Api.Models.User;
 using wallchat.DAL.App.Contracts;
 using wallchat.DAL.App.Implementations;
 using wallchat.Model.App.Entity;
@@ -58,28 +57,22 @@ namespace wallchat.CustomProvider.App.Repository
 
         #region Users
 
-        private IEnumerable<User> AllUsers => _userRepository.GetAll().ToList();
+        private IEnumerable<User> AllUsers => _userRepository.GetAll( ).ToList( );
 
-        public User FindUser(string userName, string passwordHash)
+        public User FindUser ( string userName, string passwordHash )
         {
-            return AllUsers.FirstOrDefault(p => p.UserName == userName && p.PasswordHash == passwordHash);
+            return AllUsers.FirstOrDefault (p => p.UserName == userName && p.PasswordHash == passwordHash);
         }
 
-        public User FindUser(long id)
+        public User FindUser ( long id )
         {
-            var user = _userRepository.GetById(id);
+            var user = _userRepository.GetById (id);
             return user;
         }
 
-        public void RegisterUser(UserModel user)
+        public void RegisterUser ( User user )
         {
-            var newUser = new User
-            {
-                UserName = user.UserName,
-                PasswordHash = user.Password
-            };
-
-            _userRepository.Add(newUser);
+            _userRepository.Add (user);
         }
 
         #endregion
@@ -88,7 +81,7 @@ namespace wallchat.CustomProvider.App.Repository
 
         public bool AddRefreshToken ( RefreshToken token )
         {
-            _refreshTokenRepository.Add(token);
+            _refreshTokenRepository.Add (token);
             return true;
         }
 
@@ -97,16 +90,17 @@ namespace wallchat.CustomProvider.App.Repository
             return _refreshTokenRepository.GetAll( ).ToList( );
         }
 
-        public RefreshToken GetRefreshToken(string id)
+        public RefreshToken GetRefreshToken ( string id )
         {
             return _refreshTokenRepository.GetById (id);
         }
 
         public bool RemoveRefreshToken ( string id )
         {
-            _refreshTokenRepository.Delete (GetAllRefreshTokens ( ).FirstOrDefault(p => p.Id == id));
+            _refreshTokenRepository.Delete (GetAllRefreshTokens( ).FirstOrDefault (p => p.Id == id));
             return true;
         }
+
         #endregion
     }
 }

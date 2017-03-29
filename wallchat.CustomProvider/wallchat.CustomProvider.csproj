@@ -74,10 +74,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\wallchat.Api\wallchat.Api.csproj">
-      <Project>{A46B9C97-027D-4009-A1D8-4A6F70612021}</Project>
-      <Name>wallchat.Api</Name>
-    </ProjectReference>
     <ProjectReference Include="..\wallchat.DAL\wallchat.DAL.csproj">
       <Project>{985DA05E-D271-47ED-967D-5803716A687F}</Project>
       <Name>wallchat.DAL</Name>
