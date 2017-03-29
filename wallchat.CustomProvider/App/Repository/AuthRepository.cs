@@ -1,5 +1,6 @@
 ﻿using System;
 using Ninject;
+using wallchat.Api.Models.User;
 using wallchat.DAL.App.Contracts;
 using wallchat.DAL.App.Implementations;
 using wallchat.Model.App.Entity;
@@ -54,5 +55,25 @@ namespace wallchat.CustomProvider.App.Repository
 
         #endregion
 
+        #region User
+
+        public User FindUser ( long id )
+        {
+            var user = _userRepository.GetById (id);
+            return user;
+        }
+
+        public void RegisterUser ( UserModel user )
+        {
+            var newUser = new User
+            {
+                UserName = user.UserName,
+                PasswordHash = user.Password
+            };
+
+            _userRepository.Add (newUser);
+        }
+
+        #endregion
     }
 }
