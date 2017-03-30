@@ -8,7 +8,7 @@ namespace wallchat.Api.Controllers
 {
     public class ValuesController : ApiController
     {
-        IUserService _userService;
+        readonly IUserService _userService;
 
         public ValuesController(IUserService userService)
         {
@@ -28,9 +28,20 @@ namespace wallchat.Api.Controllers
 
             //_userService.CreateUser (user);
 
-            var user = _userService.FindUser(1);
+            try
+            {
+                var user = _userService.FindUser(1);
+                return new[] { "value1", "value2", user.Email.ToString() };
+            }
+            catch ( Exception ex )
+            {
+                return new[] {"dfs", "" + ex.Message};
+                throw;
+            }
 
-            return new[ ] {"value1", "value2", user.Email.ToString()};
+
+
+
         }
 
         // GET api/<controller>/5

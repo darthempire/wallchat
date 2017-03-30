@@ -29,7 +29,7 @@ namespace wallchat.Service.Implementations
 
             logger.Fatal ("Fatallity");
             logger.Debug ("de");
-
+            throw new Exception("AHAHAH");
             return user;
         }
 

@@ -2,3 +2,8 @@
 2017-03-30 00:23:34.7449|DEBUG|wallchat.Service.Implementations.UserService|de
 2017-03-30 00:26:25.9784|DEBUG|wallchat.Service.Implementations.UserService|de
 2017-03-30 00:36:59.6468|DEBUG|wallchat.Service.Implementations.UserService|de
+2017-03-30 01:07:22.1088|DEBUG|wallchat.Service.Implementations.UserService|de
+2017-03-30 22:47:01.2904|DEBUG|wallchat.Service.Implementations.UserService|de
+2017-03-30 22:47:01.2904|DEBUG|wallchat.Service.Implementations.UserService|de
+2017-03-30 22:48:31.3997|DEBUG|wallchat.Service.Implementations.UserService|de
+2017-03-30 22:48:33.3711|DEBUG|wallchat.Service.Implementations.UserService|de

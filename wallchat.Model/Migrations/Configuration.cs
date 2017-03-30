@@ -1,3 +1,4 @@
+using System;
 using System.Data.Entity.Migrations;
 using wallchat.Model.App.EF;
 using wallchat.Model.App.Entity;
@@ -26,6 +27,22 @@ namespace wallchat.Model.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+
+            context.Users.AddOrUpdate (
+                p => p.Id,
+                new User
+                {
+                    UserName = "Vasya",
+                    PasswordHash = "123456",
+                    DateRegistration = DateTime.Now
+                },
+                new User
+                {
+                    UserName = "darthvasya",
+                    PasswordHash = "123456",
+                    DateRegistration = DateTime.Now
+                }
+                );
 
             context.Clients.AddOrUpdate (
                 p => p.Id,
