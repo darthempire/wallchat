@@ -60,6 +60,10 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <ProjectReference Include="..\wallchat.Helpers\wallchat.Helpers.csproj">
+      <Project>{52b09684-2134-4c2e-a87d-c74902ce7ad5}</Project>
+      <Name>wallchat.Helpers</Name>
+    </ProjectReference>
     <ProjectReference Include="..\wallchat.Model\wallchat.Model.csproj">
       <Project>{7792D74C-5C8C-42AF-9FEC-75908170FC3F}</Project>
       <Name>wallchat.Model</Name>

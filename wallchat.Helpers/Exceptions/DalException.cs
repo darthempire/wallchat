@@ -2,7 +2,7 @@
 
 namespace wallchat.Helpers.Exceptions
 {
-    public class DalException : Exception
+    public class DalException : WallchatException
     {
         public DalException(string message)
             : base(message)

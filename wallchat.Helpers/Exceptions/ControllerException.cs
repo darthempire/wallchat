@@ -2,7 +2,7 @@
 
 namespace wallchat.Helpers.Exceptions
 {
-    public class ControllerException : Exception
+    public class ControllerException : WallchatException
     {
         public ControllerException ( string message )
             : base (message)

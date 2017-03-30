@@ -44,6 +44,7 @@
     <Compile Include="Exceptions\ControllerException.cs" />
     <Compile Include="Exceptions\DalException.cs" />
     <Compile Include="Exceptions\ServiceException.cs" />
+    <Compile Include="Exceptions\WallchatException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

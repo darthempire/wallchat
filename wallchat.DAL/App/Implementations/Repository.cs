@@ -4,6 +4,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
 using wallchat.DAL.App.Contracts;
+using wallchat.Helpers.Exceptions;
 using wallchat.Model.App.EF;
 
 namespace wallchat.DAL.App.Implementations
@@ -25,8 +26,16 @@ namespace wallchat.DAL.App.Implementations
 
         public virtual void Add ( T entity )
         {
-            _dbset.Add (entity);
-            DataContext.SaveChanges ( );
+            try
+            {
+                _dbset.Add (entity);
+                DataContext.SaveChanges( );
+            }
+            catch (Exception ex)
+            {
+                //logger
+                throw new DalException ("DAL exception, error with Adding " + typeof ( T ).FullName + " entity");
+            }
         }
 
         public virtual void Update ( T entity )
