@@ -41,6 +41,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cryptography\SHA256.cs" />
+    <Compile Include="Exceptions\ControllerException.cs" />
+    <Compile Include="Exceptions\DalException.cs" />
+    <Compile Include="Exceptions\ServiceException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
