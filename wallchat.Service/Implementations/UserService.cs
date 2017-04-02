@@ -12,11 +12,13 @@ namespace wallchat.Service.Implementations
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IUserRepository _userRepository;
+        private readonly Logger _logger;
 
         public UserService (
             IUnitOfWork unitOfWork,
             IUserRepository userRepository )
         {
+            _logger = LogManager.GetCurrentClassLogger();
             _unitOfWork = unitOfWork;
             _userRepository = userRepository;
         }
@@ -24,12 +26,6 @@ namespace wallchat.Service.Implementations
         public User FindUser ( long id )
         {
             var user = _userRepository.GetById (id);
-
-            var logger = LogManager.GetCurrentClassLogger( );
-
-            logger.Fatal ("Fatallity");
-            logger.Debug ("de");
-            throw new Exception("AHAHAH");
             return user;
         }
 

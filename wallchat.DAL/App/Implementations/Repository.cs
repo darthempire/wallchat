@@ -32,16 +32,16 @@ namespace wallchat.DAL.App.Implementations
             try
             {
                 _dbset.Add (entity);
-                _logger.Info ("REPOSITORY: Add " + nameof (T) + " entity");
+                _logger.Info ("REPOSITORY: Add " + typeof (T).Name + " entity");
                 DataContext.SaveChanges( );
                 _logger.Info ("REPOSITORY: SaveChanges();");
             }
             catch ( Exception ex )
             {
-                _logger.Error ("Repository exception, error with ADD " + nameof (T) + " entity");
+                _logger.Error ("Repository exception, error with ADD " + typeof(T).Name + " entity");
                 _logger.Error ("EXCEPTION: " + ex);
                 throw new RepositoryException (
-                    "Repository exception, error with ADD " + nameof (T) + " entity");
+                    "Repository exception, error with ADD " + typeof(T).Name + " entity");
             }
         }
 
@@ -51,16 +51,16 @@ namespace wallchat.DAL.App.Implementations
             {
                 _dbset.Attach (entity);
                 _dataContext.Entry (entity).State = EntityState.Modified;
-                _logger.Info ("REPOSITORY: Update " + nameof (T) + " entity");
+                _logger.Info ("REPOSITORY: Update " + typeof(T).Name + " entity");
                 DataContext.SaveChanges( );
                 _logger.Info ("REPOSITORY: SaveChanges();");
             }
             catch ( Exception ex )
             {
-                _logger.Error ("Repository exception, error with UPDATE " + nameof (T) + " entity");
+                _logger.Error ("Repository exception, error with UPDATE " + typeof(T).Name + " entity");
                 _logger.Error ("EXCEPTION: " + ex);
                 throw new RepositoryException (
-                    "Repository exception, error with UPDATE " + nameof (T) + " entity");
+                    "Repository exception, error with UPDATE " + typeof(T).Name + " entity");
             }
         }
 
@@ -70,16 +70,16 @@ namespace wallchat.DAL.App.Implementations
             {
                 _dbset.Attach (entity);
                 _dataContext.Entry (entity).State = EntityState.Deleted;
-                _logger.Info ("REPOSITORY: Delete " + nameof (T) + " entity");
+                _logger.Info ("REPOSITORY: Delete " + typeof(T).Name + " entity");
                 DataContext.SaveChanges( );
                 _logger.Info ("REPOSITORY: SaveChanges();");
             }
             catch ( Exception ex )
             {
-                _logger.Error ("Repository exception, error with DELETE " + nameof (T) + " entity");
+                _logger.Error ("Repository exception, error with DELETE " + typeof(T).Name + " entity");
                 _logger.Error ("EXCEPTION: " + ex);
                 throw new RepositoryException (
-                    "Repository exception, error with DELETE " + nameof (T) + " entity");
+                    "Repository exception, error with DELETE " + typeof(T).Name + " entity");
             }
         }
 
@@ -90,16 +90,16 @@ namespace wallchat.DAL.App.Implementations
                 var objects = _dbset.Where (where).AsEnumerable( );
                 foreach ( var obj in objects )
                     _dbset.Remove (obj);
-                _logger.Info ("REPOSITORY: Delete " + nameof (T) + " entity");
+                _logger.Info ("REPOSITORY: Delete " + typeof(T).Name + " entity");
                 DataContext.SaveChanges( );
                 _logger.Info ("REPOSITORY: SaveChanges();");
             }
             catch ( Exception ex )
             {
-                _logger.Error ("Repository exception, error with DELETE " + nameof (T) + " entity");
+                _logger.Error ("Repository exception, error with DELETE " + typeof(T).Name + " entity");
                 _logger.Error ("EXCEPTION: " + ex);
                 throw new RepositoryException (
-                    "Repository exception, error with DELETE " + nameof (T) + " entity");
+                    "Repository exception, error with DELETE " + typeof(T).Name + " entity");
             }
         }
 
@@ -111,10 +111,10 @@ namespace wallchat.DAL.App.Implementations
             }
             catch ( Exception ex )
             {
-                _logger.Error ("Repository exception, error with GET BY ID " + nameof (T) + " entity");
+                _logger.Error ("Repository exception, error with GET BY ID " + typeof(T).Name + " entity");
                 _logger.Error ("EXCEPTION: " + ex);
                 throw new RepositoryException (
-                    "Repository exception, error with GET BY ID " + nameof (T) + " entity");
+                    "Repository exception, error with GET BY ID " + typeof(T).Name + " entity");
             }
         }
 
@@ -122,15 +122,15 @@ namespace wallchat.DAL.App.Implementations
         {
             try
             {
-                _logger.Info ("REPOSITORY: Getting Buy Id " + nameof (T) + " entity");
+                _logger.Info ("REPOSITORY: Getting Buy Id " + typeof(T).Name + " entity");
                 return _dbset.Find (id);
             }
             catch ( Exception ex )
             {
-                _logger.Error ("Repository exception, error with GET BY ID " + nameof (T) + " entity");
+                _logger.Error ("Repository exception, error with GET BY ID " + typeof(T).Name + " entity");
                 _logger.Error ("EXCEPTION: " + ex);
                 throw new RepositoryException (
-                    "Repository exception, error with GET BY ID " + nameof (T) + " entity");
+                    "Repository exception, error with GET BY ID " + typeof(T).Name + " entity");
             }
         }
 
@@ -138,15 +138,15 @@ namespace wallchat.DAL.App.Implementations
         {
             try
             {
-                _logger.Info("REPOSITORY: Getting List " + nameof(T) + " entity");
+                _logger.Info("REPOSITORY: Getting List " + typeof(T).Name + " entity");
                 return _dbset.ToList( );
             }
             catch ( Exception ex )
             {
-                _logger.Error ("Repository exception, error with GET ALL " + nameof (T) + " entity");
+                _logger.Error ("Repository exception, error with GET ALL " + typeof(T).Name + " entity");
                 _logger.Error ("EXCEPTION: " + ex);
                 throw new RepositoryException (
-                    "Repository exception, error with GET ALL " + nameof (T) + " entity");
+                    "Repository exception, error with GET ALL " + typeof(T).Name + " entity");
             }
         }
 
@@ -154,15 +154,15 @@ namespace wallchat.DAL.App.Implementations
         {
             try
             {
-                _logger.Info("REPOSITORY: Getting List(Many) " + nameof(T) + " entity");
+                _logger.Info("REPOSITORY: Getting List(Many) " + typeof(T).Name + " entity");
                 return _dbset.Where (where).ToList( );
             }
             catch ( Exception ex )
             {
-                _logger.Error ("Repository exception, error with GET MANY " + nameof (T) + " entity");
+                _logger.Error ("Repository exception, error with GET MANY " + typeof(T).Name + " entity");
                 _logger.Error ("EXCEPTION: " + ex);
                 throw new RepositoryException (
-                    "Repository exception, error with GET MANY " + nameof (T) + " entity");
+                    "Repository exception, error with GET MANY " + typeof(T).Name + " entity");
             }
         }
 
@@ -170,15 +170,15 @@ namespace wallchat.DAL.App.Implementations
         {
             try
             {
-                _logger.Info("REPOSITORY: Getting By expression " + nameof(T) + " entity");
+                _logger.Info("REPOSITORY: Getting By expression " + typeof(T).Name + " entity");
                 return _dbset.Where (where).FirstOrDefault( );
             }
             catch ( Exception ex )
             {
-                _logger.Error ("Repository exception, error with GET BY EXPRESSION " + nameof (T) + " entity");
+                _logger.Error ("Repository exception, error with GET BY EXPRESSION " + typeof(T).Name + " entity");
                 _logger.Error ("EXCEPTION: " + ex);
                 throw new RepositoryException (
-                    "Repository exception, error with GET BY EXPRESSION " + nameof (T) + " entity");
+                    "Repository exception, error with GET BY EXPRESSION " + typeof(T).Name + " entity");
             }
         }
     }
