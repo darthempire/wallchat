@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace wallchat.Helpers.Exceptions
+﻿namespace wallchat.Helpers.Exceptions
 {
     public class ControllerException : WallchatException
     {
