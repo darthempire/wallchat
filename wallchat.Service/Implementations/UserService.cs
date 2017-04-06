@@ -56,6 +56,7 @@ namespace wallchat.Service.Implementations
                 user.PhoneNumber = userDto.PhoneNumber;
                 user.Email = userDto.Email;
                 user.DateRegistration = DateTime.Now;
+                user.RoleId = 1;
 
                 _userRepository.Add (user);
             }

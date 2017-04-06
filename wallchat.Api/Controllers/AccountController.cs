@@ -1,8 +1,11 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using System.Web.Http;
 using wallchat.Api.Models.User;
 using wallchat.Model.App.DTO;
 using wallchat.Service.Contracts;
+using wallchat.Helpers.Exceptions;
+
 
 namespace wallchat.Api.Controllers
 {
@@ -23,10 +26,16 @@ namespace wallchat.Api.Controllers
         {
             if ( !ModelState.IsValid )
                 return BadRequest (ModelState);
-            //sdfaf
-            var user = new RegisterUserDTO {UserName = userModel.UserName, PasswordHash = userModel.Password};
-            _userService.CreateUser (user);
-            return Ok( );
+            try
+            {
+                var user = new RegisterUserDTO { UserName = userModel.UserName, PasswordHash = userModel.Password };
+                _userService.CreateUser(user);
+                return Ok();
+            }
+            catch ( Exception e )
+            {
+                return BadRequest(e.Message);
+            }
         }
     }
 }

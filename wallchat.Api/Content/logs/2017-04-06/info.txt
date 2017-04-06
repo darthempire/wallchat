@@ -1,0 +1,20 @@
+2017-04-06 23:35:09.0456|INFO|wallchat.Service.Implementations.UserService|Get User: id = 1
+2017-04-06 23:36:31.5963|INFO|wallchat.Service.Implementations.UserService|Get User: id = 1
+2017-04-06 23:37:31.6078|INFO|wallchat.DAL.App.Implementations.Repository`1|REPOSITORY: Add User entity
+2017-04-06 23:39:07.6265|INFO|wallchat.Service.Implementations.UserService|Get User: id = 1
+2017-04-06 23:39:16.2036|INFO|wallchat.DAL.App.Implementations.Repository`1|REPOSITORY: Add User entity
+2017-04-06 23:39:16.2196|INFO|wallchat.DAL.App.Implementations.Repository`1|REPOSITORY: SaveChanges();
+2017-04-06 23:39:36.8575|INFO|wallchat.DAL.App.Implementations.Repository`1|REPOSITORY: Getting Buy Id Client entity
+2017-04-06 23:39:48.4765|INFO|wallchat.DAL.App.Implementations.Repository`1|REPOSITORY: Getting Buy Id Client entity
+2017-04-06 23:39:51.4666|INFO|wallchat.DAL.App.Implementations.Repository`1|REPOSITORY: Getting Buy Id Client entity
+2017-04-06 23:39:52.1702|INFO|wallchat.DAL.App.Implementations.Repository`1|REPOSITORY: Getting Buy Id Client entity
+2017-04-06 23:40:01.3162|INFO|wallchat.DAL.App.Implementations.Repository`1|REPOSITORY: Getting Buy Id Client entity
+2017-04-06 23:40:28.0108|INFO|wallchat.DAL.App.Implementations.Repository`1|REPOSITORY: Getting Buy Id Client entity
+2017-04-06 23:40:29.9450|INFO|wallchat.DAL.App.Implementations.Repository`1|REPOSITORY: Getting Buy Id Client entity
+2017-04-06 23:40:30.3466|INFO|wallchat.DAL.App.Implementations.Repository`1|REPOSITORY: Getting Buy Id Client entity
+2017-04-06 23:40:30.5615|INFO|wallchat.DAL.App.Implementations.Repository`1|REPOSITORY: Getting Buy Id Client entity
+2017-04-06 23:40:30.7782|INFO|wallchat.DAL.App.Implementations.Repository`1|REPOSITORY: Getting Buy Id Client entity
+2017-04-06 23:42:00.2395|INFO|wallchat.DAL.App.Implementations.Repository`1|REPOSITORY: Getting Buy Id Client entity
+2017-04-06 23:42:00.2585|INFO|wallchat.DAL.App.Implementations.Repository`1|REPOSITORY: Getting List User entity
+2017-04-06 23:42:00.4084|INFO|wallchat.DAL.App.Implementations.Repository`1|REPOSITORY: Add RefreshToken entity
+2017-04-06 23:42:00.4134|INFO|wallchat.DAL.App.Implementations.Repository`1|REPOSITORY: SaveChanges();

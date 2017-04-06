@@ -57,7 +57,7 @@ namespace wallchat.Model.Migrations
                     UserName = "darthvasya",
                     PasswordHash = "123456",
                     DateRegistration = DateTime.Now,
-                    RoleId = 1
+                    RoleId = 2
                 }
             );
 

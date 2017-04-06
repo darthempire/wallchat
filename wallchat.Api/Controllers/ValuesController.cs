@@ -1,24 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Web.Http;
-using wallchat.Model.App.Entity;
 using wallchat.Service.Contracts;
 
 namespace wallchat.Api.Controllers
 {
     public class ValuesController : ApiController
     {
-        readonly IUserService _userService;
+        private readonly IUserService _userService;
 
-        public ValuesController(IUserService userService)
+        public ValuesController ( IUserService userService )
         {
             _userService = userService;
         }
 
         // GET api/<controller>
-        public IEnumerable < string > Get ( )
+        public IEnumerable<string> Get()
         {
-
             //var user = new User (  );
 
             //user.Email = "vasya@mail.com";
@@ -28,20 +25,8 @@ namespace wallchat.Api.Controllers
 
             //_userService.CreateUser (user);
 
-            try
-            {
-                var user = _userService.FindUser(1);
-                return new[] { "value1", "value2", user.Email.ToString() };
-            }
-            catch ( Exception ex )
-            {
-                return new[] {"dfs", "" + ex.Message};
-                throw;
-            }
-
-
-
-
+            var user = _userService.FindUser (1);
+            return new[] {"value1", "value2", user.UserId};
         }
 
         // GET api/<controller>/5
