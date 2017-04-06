@@ -27,6 +27,17 @@ namespace wallchat.Model.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+            
+           context.Roles.AddOrUpdate (
+               p => p.Id,
+               new Role
+               {
+                   RoleName = "user"
+               },
+               new Role
+               {
+                   RoleName = "manager"
+               });
 
             context.Users.AddOrUpdate (
                 p => p.Id,

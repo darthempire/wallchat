@@ -53,6 +53,7 @@
     <Compile Include="App\EF\DatabaseContext.cs" />
     <Compile Include="App\Entity\Client.cs" />
     <Compile Include="App\Entity\RefreshToken.cs" />
+    <Compile Include="App\Entity\Role.cs" />
     <Compile Include="App\Entity\User.cs" />
     <Compile Include="App\Enums\ApplicationTypes.cs" />
     <Compile Include="Migrations\201703281853149_Initial, add user, client, refreshtoken.cs" />
@@ -62,6 +63,10 @@
     <Compile Include="Migrations\201703282122300_changes.cs" />
     <Compile Include="Migrations\201703282122300_changes.Designer.cs">
       <DependentUpon>201703282122300_changes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704061933288_add_role.cs" />
+    <Compile Include="Migrations\201704061933288_add_role.Designer.cs">
+      <DependentUpon>201704061933288_add_role.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -76,6 +81,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703282122300_changes.resx">
       <DependentUpon>201703282122300_changes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704061933288_add_role.resx">
+      <DependentUpon>201704061933288_add_role.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
