@@ -6,9 +6,9 @@ using wallchat.Model.App.Enums;
 
 namespace wallchat.Model.Migrations
 {
-    internal sealed class Configuration : DbMigrationsConfiguration < DatabaseContext >
+    internal sealed class Configuration : DbMigrationsConfiguration<DatabaseContext>
     {
-        public Configuration ()
+        public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
@@ -27,33 +27,39 @@ namespace wallchat.Model.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
-            
-           context.Roles.AddOrUpdate (
-               p => p.Id,
-               new Role
-               {
-                   RoleName = "user"
-               },
-               new Role
-               {
-                   RoleName = "manager"
-               });
+
+            context.Roles.AddOrUpdate (
+                p => p.Id,
+                new Role
+                {
+                    Id = 1,
+                    RoleName = "user"
+                },
+                new Role
+                {
+                    Id = 2,
+                    RoleName = "manager"
+                });
 
             context.Users.AddOrUpdate (
                 p => p.Id,
                 new User
                 {
+                    Id = 1,
                     UserName = "Vasya",
                     PasswordHash = "123456",
-                    DateRegistration = DateTime.Now
+                    DateRegistration = DateTime.Now,
+                    RoleId = 1
                 },
                 new User
                 {
+                    Id = 2,
                     UserName = "darthvasya",
                     PasswordHash = "123456",
-                    DateRegistration = DateTime.Now
+                    DateRegistration = DateTime.Now,
+                    RoleId = 1
                 }
-                );
+            );
 
             context.Clients.AddOrUpdate (
                 p => p.Id,

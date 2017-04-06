@@ -9,6 +9,9 @@ namespace wallchat.Model.App.Entity
 
         public string UserId { get; set; }
 
+        public Role Role { get; set; }
+        public int RoleId { get; set; }
+
         [ StringLength ( 14 ) ]
         public string UserName { get; set; }
 
