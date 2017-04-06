@@ -23,7 +23,7 @@ namespace wallchat.Api.Controllers
         {
             if ( !ModelState.IsValid )
                 return BadRequest (ModelState);
-
+            //sdfaf
             var user = new RegisterUserDTO {UserName = userModel.UserName, PasswordHash = userModel.Password};
             _userService.CreateUser (user);
             return Ok( );
