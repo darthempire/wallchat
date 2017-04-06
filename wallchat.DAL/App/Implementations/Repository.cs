@@ -41,7 +41,7 @@ namespace wallchat.DAL.App.Implementations
                 _logger.Error ("Repository exception, error with ADD " + typeof(T).Name + " entity");
                 _logger.Error ("EXCEPTION: " + ex);
                 throw new RepositoryException (
-                    "Repository exception, error with ADD " + typeof(T).Name + " entity");
+                    "Repository exception, error with ADD " + typeof(T).Name + " entity", ex);
             }
         }
 
@@ -60,7 +60,7 @@ namespace wallchat.DAL.App.Implementations
                 _logger.Error ("Repository exception, error with UPDATE " + typeof(T).Name + " entity");
                 _logger.Error ("EXCEPTION: " + ex);
                 throw new RepositoryException (
-                    "Repository exception, error with UPDATE " + typeof(T).Name + " entity");
+                    "Repository exception, error with UPDATE " + typeof(T).Name + " entity", ex);
             }
         }
 
@@ -79,7 +79,7 @@ namespace wallchat.DAL.App.Implementations
                 _logger.Error ("Repository exception, error with DELETE " + typeof(T).Name + " entity");
                 _logger.Error ("EXCEPTION: " + ex);
                 throw new RepositoryException (
-                    "Repository exception, error with DELETE " + typeof(T).Name + " entity");
+                    "Repository exception, error with DELETE " + typeof(T).Name + " entity", ex);
             }
         }
 
@@ -99,7 +99,7 @@ namespace wallchat.DAL.App.Implementations
                 _logger.Error ("Repository exception, error with DELETE " + typeof(T).Name + " entity");
                 _logger.Error ("EXCEPTION: " + ex);
                 throw new RepositoryException (
-                    "Repository exception, error with DELETE " + typeof(T).Name + " entity");
+                    "Repository exception, error with DELETE " + typeof(T).Name + " entity", ex);
             }
         }
 
@@ -114,7 +114,7 @@ namespace wallchat.DAL.App.Implementations
                 _logger.Error ("Repository exception, error with GET BY ID " + typeof(T).Name + " entity");
                 _logger.Error ("EXCEPTION: " + ex);
                 throw new RepositoryException (
-                    "Repository exception, error with GET BY ID " + typeof(T).Name + " entity");
+                    "Repository exception, error with GET BY ID " + typeof(T).Name + " entity", ex);
             }
         }
 
@@ -130,7 +130,7 @@ namespace wallchat.DAL.App.Implementations
                 _logger.Error ("Repository exception, error with GET BY ID " + typeof(T).Name + " entity");
                 _logger.Error ("EXCEPTION: " + ex);
                 throw new RepositoryException (
-                    "Repository exception, error with GET BY ID " + typeof(T).Name + " entity");
+                    "Repository exception, error with GET BY ID " + typeof(T).Name + " entity", ex);
             }
         }
 
@@ -146,7 +146,7 @@ namespace wallchat.DAL.App.Implementations
                 _logger.Error ("Repository exception, error with GET ALL " + typeof(T).Name + " entity");
                 _logger.Error ("EXCEPTION: " + ex);
                 throw new RepositoryException (
-                    "Repository exception, error with GET ALL " + typeof(T).Name + " entity");
+                    "Repository exception, error with GET ALL " + typeof(T).Name + " entity", ex);
             }
         }
 
@@ -162,7 +162,7 @@ namespace wallchat.DAL.App.Implementations
                 _logger.Error ("Repository exception, error with GET MANY " + typeof(T).Name + " entity");
                 _logger.Error ("EXCEPTION: " + ex);
                 throw new RepositoryException (
-                    "Repository exception, error with GET MANY " + typeof(T).Name + " entity");
+                    "Repository exception, error with GET MANY " + typeof(T).Name + " entity", ex);
             }
         }
 
@@ -178,7 +178,7 @@ namespace wallchat.DAL.App.Implementations
                 _logger.Error ("Repository exception, error with GET BY EXPRESSION " + typeof(T).Name + " entity");
                 _logger.Error ("EXCEPTION: " + ex);
                 throw new RepositoryException (
-                    "Repository exception, error with GET BY EXPRESSION " + typeof(T).Name + " entity");
+                    "Repository exception, error with GET BY EXPRESSION " + typeof(T).Name + " entity", ex);
             }
         }
     }
