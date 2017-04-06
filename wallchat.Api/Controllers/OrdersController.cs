@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Web.Http;
+using wallchat.Api.App.Filters;
 
 namespace wallchat.Api.Controllers
 {
@@ -7,6 +8,7 @@ namespace wallchat.Api.Controllers
     public class OrdersController : ApiController
     {
         [Authorize]
+        [Auth("manager")]
         [Route("")]
         public IHttpActionResult Get()
         {

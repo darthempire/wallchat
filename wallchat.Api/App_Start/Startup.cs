@@ -24,7 +24,7 @@ namespace wallchat.Api
             {
                 AllowInsecureHttp = true,
                 TokenEndpointPath = new PathString ("/token"),
-                AccessTokenExpireTimeSpan = TimeSpan.FromSeconds (5),
+                AccessTokenExpireTimeSpan = TimeSpan.FromSeconds (7200),
                 Provider = new SimpleAuthorizationServerProvider( ),
                 RefreshTokenProvider = new SimpleRefreshTokenProvider( )
             };

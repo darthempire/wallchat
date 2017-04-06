@@ -1,0 +1,21 @@
+2017-04-07 00:10:56.4924|INFO|wallchat.Service.Implementations.UserService|Get User: id = 1
+2017-04-07 00:11:17.3728|INFO|wallchat.DAL.App.Implementations.Repository`1|REPOSITORY: Getting Buy Id Client entity
+2017-04-07 00:11:17.3969|INFO|wallchat.DAL.App.Implementations.Repository`1|REPOSITORY: Getting List User entity
+2017-04-07 00:11:17.4149|INFO|wallchat.DAL.App.Implementations.Repository`1|REPOSITORY: Add RefreshToken entity
+2017-04-07 00:11:17.4149|INFO|wallchat.DAL.App.Implementations.Repository`1|REPOSITORY: SaveChanges();
+2017-04-07 00:13:10.6726|INFO|wallchat.Service.Implementations.UserService|Get User: id = 1
+2017-04-07 00:15:26.5235|INFO|wallchat.Service.Implementations.UserService|Get User: id = 1
+2017-04-07 00:15:26.5576|INFO|wallchat.Service.Implementations.UserService|Get User: id = 1
+2017-04-07 00:15:32.1331|INFO|wallchat.DAL.App.Implementations.Repository`1|REPOSITORY: Getting Buy Id Client entity
+2017-04-07 00:15:32.1651|INFO|wallchat.DAL.App.Implementations.Repository`1|REPOSITORY: Getting List User entity
+2017-04-07 00:15:32.1852|INFO|wallchat.DAL.App.Implementations.Repository`1|REPOSITORY: Add RefreshToken entity
+2017-04-07 00:15:32.2062|INFO|wallchat.DAL.App.Implementations.Repository`1|REPOSITORY: SaveChanges();
+2017-04-07 00:15:50.5315|INFO|wallchat.DAL.App.Implementations.Repository`1|REPOSITORY: Getting Buy Id Client entity
+2017-04-07 00:15:50.5315|INFO|wallchat.DAL.App.Implementations.Repository`1|REPOSITORY: Getting List User entity
+2017-04-07 00:15:50.5415|INFO|wallchat.DAL.App.Implementations.Repository`1|REPOSITORY: Add RefreshToken entity
+2017-04-07 00:15:50.5616|INFO|wallchat.DAL.App.Implementations.Repository`1|REPOSITORY: SaveChanges();
+2017-04-07 00:19:33.4194|INFO|wallchat.Service.Implementations.UserService|Get User: id = 1
+2017-04-07 00:19:39.3284|INFO|wallchat.DAL.App.Implementations.Repository`1|REPOSITORY: Getting Buy Id Client entity
+2017-04-07 00:19:39.3574|INFO|wallchat.DAL.App.Implementations.Repository`1|REPOSITORY: Getting List User entity
+2017-04-07 00:20:10.4319|INFO|wallchat.DAL.App.Implementations.Repository`1|REPOSITORY: Getting Buy Id Client entity
+2017-04-07 00:20:10.4319|INFO|wallchat.DAL.App.Implementations.Repository`1|REPOSITORY: Getting List User entity

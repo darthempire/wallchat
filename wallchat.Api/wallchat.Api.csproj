@@ -153,6 +153,7 @@
   <ItemGroup>
     <Compile Include="App\CastleDI\DependencyInstaller.cs" />
     <Compile Include="App\CastleDI\WindsorActivator.cs" />
+    <Compile Include="App\Filters\AuthAttribute.cs" />
     <Compile Include="App_Start\Startup.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />

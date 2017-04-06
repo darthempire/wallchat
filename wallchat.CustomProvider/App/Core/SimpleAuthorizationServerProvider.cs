@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.Owin.Security;
@@ -71,19 +72,23 @@ namespace wallchat.CustomProvider.App.Core
             var allowedOrigin = context.OwinContext.Get<string> ("as:clientAllowedOrigin") ?? "*";
             context.OwinContext.Response.Headers.Add ("Access-Control-Allow-Origin", new[] {allowedOrigin});
 
+            string roleName = String.Empty;
             using (var authRepository = new AuthRepository( ))
             {
                 var user = authRepository.FindUser (context.UserName, context.Password);
+               
                 if ( user == null )
                 {
                     context.SetError ("invalid_grant", "The user name or password is incorrect.");
                     return;
                 }
+
+                roleName = user.Role.RoleName;
             }
 
             var identity = new ClaimsIdentity (context.Options.AuthenticationType);
             identity.AddClaim (new Claim ("name", context.UserName));
-            identity.AddClaim (new Claim ("role", "user"));
+            identity.AddClaim (new Claim ("role", roleName));
 
             var props = new AuthenticationProperties (
                 new Dictionary<string, string>
