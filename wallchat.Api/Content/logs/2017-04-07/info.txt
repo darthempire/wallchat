@@ -35,3 +35,10 @@
 2017-04-07 00:32:21.2444|INFO|wallchat.DAL.App.Implementations.Repository`1|REPOSITORY: Getting List User entity
 2017-04-07 00:32:21.2444|INFO|wallchat.DAL.App.Implementations.Repository`1|REPOSITORY: Add RefreshToken entity
 2017-04-07 00:32:21.2754|INFO|wallchat.DAL.App.Implementations.Repository`1|REPOSITORY: SaveChanges();
+2017-04-07 00:42:03.8568|INFO|wallchat.DAL.App.Implementations.Repository`1|REPOSITORY: Getting Buy Id Client entity
+2017-04-07 00:42:04.2712|INFO|wallchat.DAL.App.Implementations.Repository`1|REPOSITORY: Getting Buy Id RefreshToken entity
+2017-04-07 00:42:04.2882|INFO|wallchat.DAL.App.Implementations.Repository`1|REPOSITORY: Getting List RefreshToken entity
+2017-04-07 00:42:04.3042|INFO|wallchat.DAL.App.Implementations.Repository`1|REPOSITORY: Delete RefreshToken entity
+2017-04-07 00:42:04.3042|INFO|wallchat.DAL.App.Implementations.Repository`1|REPOSITORY: SaveChanges();
+2017-04-07 00:42:04.3222|INFO|wallchat.DAL.App.Implementations.Repository`1|REPOSITORY: Add RefreshToken entity
+2017-04-07 00:42:04.3222|INFO|wallchat.DAL.App.Implementations.Repository`1|REPOSITORY: SaveChanges();

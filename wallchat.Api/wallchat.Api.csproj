@@ -153,11 +153,12 @@
   <ItemGroup>
     <Compile Include="App\CastleDI\DependencyInstaller.cs" />
     <Compile Include="App\CastleDI\WindsorActivator.cs" />
-    <Compile Include="App\Filters\AuthAttribute.cs" />
+    <Compile Include="App\Filters\RoleAttribute.cs" />
     <Compile Include="App_Start\Startup.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\OrdersController.cs" />
+    <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

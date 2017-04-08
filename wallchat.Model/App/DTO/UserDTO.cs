@@ -1,11 +1,15 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using wallchat.Model.App.Entity;
 
 namespace wallchat.Model.App.DTO
 {
     public class UserDTO
     {
         public int Id { get; set; }
+
+        public Role Role { get; set; }
+        public int RoleId { get; set; }
 
         [ StringLength ( 14 ) ]
         public string UserName { get; set; }
