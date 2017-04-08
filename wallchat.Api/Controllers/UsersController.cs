@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Web.Http;
 using AutoMapper;
+using wallchat.Api.App.Filters;
 using wallchat.Api.Models.Errors;
 using wallchat.Api.Models.User;
 using wallchat.Helpers.Exceptions;
@@ -41,7 +42,7 @@ namespace wallchat.Api.Controllers
         }
 
         // GET api/Account
-        [ AllowAnonymous ]
+        [Role("manager")]
         public IHttpActionResult Get()
         {
             try
@@ -73,7 +74,7 @@ namespace wallchat.Api.Controllers
         }
 
         // GET api/Account/5
-        [ AllowAnonymous ]
+        [Role("manager")]
         public IHttpActionResult Get ( int id )
         {
             try
@@ -105,7 +106,7 @@ namespace wallchat.Api.Controllers
         }
 
         // DELETE api/Account/5
-        [ AllowAnonymous ]
+        [Role("supermanager")]
         public IHttpActionResult Delete ( int id )
         {
             try
@@ -134,7 +135,7 @@ namespace wallchat.Api.Controllers
         }
 
         // PUT api/Account/5
-        [ AllowAnonymous ]
+        [Role("manager")]
         public IHttpActionResult Update ( UserViewModel userModel )
         {
             try
