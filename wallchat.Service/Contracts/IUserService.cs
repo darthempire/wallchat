@@ -11,8 +11,8 @@ namespace wallchat.Service.Contracts
         User FindUser ( long id );
         void UpdateUser ( UserDTO userDto );
         void DeleteUser ( long id );
-        List<User> GetAllUsers();
-        List<User> GetAllUsers ( Expression<Func<User, bool>> where );
+        List<UserDTO> GetAllUsers();
+        List<UserDTO> GetAllUsers ( Expression<Func<User, bool>> where );
         void CreateUser ( RegisterUserDTO userDto );
     }
 }
