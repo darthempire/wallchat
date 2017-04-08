@@ -25,8 +25,7 @@ namespace wallchat.Api.Controllers
 
             //_userService.CreateUser (user);
 
-            var user = _userService.FindUser (1);
-            return new[] {"value1", "value2", user.UserId};
+            return new[] {"value1", "value2"};
         }
 
         // GET api/<controller>/5

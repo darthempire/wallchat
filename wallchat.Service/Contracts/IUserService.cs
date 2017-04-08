@@ -8,7 +8,7 @@ namespace wallchat.Service.Contracts
 {
     public interface IUserService
     {
-        User FindUser ( long id );
+        UserDTO FindUser ( long id );
         void UpdateUser ( UserDTO userDto );
         void DeleteUser ( long id );
         List<UserDTO> GetAllUsers();

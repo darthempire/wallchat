@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using System.Web.Http;
-using System.Web.Http.Results;
 using AutoMapper;
 using wallchat.Api.Models.Errors;
 using wallchat.Api.Models.User;
@@ -11,7 +11,7 @@ using wallchat.Service.Contracts;
 
 namespace wallchat.Api.Controllers
 {
-    [ RoutePrefix ( "api/users" ) ]
+    [ RoutePrefix ( "api/Account" ) ]
     public class UsersController : ApiController
     {
         private readonly IUserService _userService;
@@ -21,7 +21,27 @@ namespace wallchat.Api.Controllers
             _userService = userService;
         }
 
-        // GET api/users
+        // POST api/Account/Register
+        [ AllowAnonymous ]
+        [ Route ( "Register" ) ]
+        public async Task<IHttpActionResult> Register ( RegisterUserModel userModel )
+        {
+            if( !ModelState.IsValid )
+                return BadRequest (ModelState);
+            try
+            {
+                var user = new RegisterUserDTO { UserName = userModel.UserName, PasswordHash = userModel.Password };
+                _userService.CreateUser (user);
+                return Ok( );
+            }
+            catch( Exception e )
+            {
+                return BadRequest (e.Message);
+            }
+        }
+
+        // GET api/Account
+        [ AllowAnonymous ]
         public IHttpActionResult Get()
         {
             try
@@ -34,39 +54,115 @@ namespace wallchat.Api.Controllers
             }
             catch( ServiceException se )
             {
-                var error = new Error(  );
-                error.Message = se.Message;
-                error.Code = 12;
-                return Json ( error );
+                var error = new Error
+                {
+                    Message = se.Message,
+                    Code = 12
+                };
+                return Json (error);
             }
-            catch( Exception e )
+            catch( Exception ex )
             {
-                Console.WriteLine (e);
-                throw;
+                var error = new Error
+                {
+                    Message = ex.Message,
+                    Code = 12
+                };
+                return Json (error);
             }
-
-            return null;
         }
 
-        // GET api/<controller>/5
-        public string Get ( int id )
+        // GET api/Account/5
+        [ AllowAnonymous ]
+        public IHttpActionResult Get ( int id )
         {
-            return "value";
+            try
+            {
+                var user = _userService.FindUser (id);
+                Mapper.Initialize (
+                    cfg => cfg.CreateMap<UserDTO, UserViewModel>( ));
+                var viewUser = Mapper.Map<UserDTO, UserViewModel> (user);
+                return Json (viewUser);
+            }
+            catch( ServiceException se )
+            {
+                var error = new Error
+                {
+                    Message = se.Message,
+                    Code = 12
+                };
+                return Json (error);
+            }
+            catch( Exception ex )
+            {
+                var error = new Error
+                {
+                    Message = ex.Message,
+                    Code = 12
+                };
+                return Json (error);
+            }
         }
 
-        // POST api/<controller>
-        public void Post ( [ FromBody ] string value )
+        // DELETE api/Account/5
+        [ AllowAnonymous ]
+        public IHttpActionResult Delete ( int id )
         {
+            try
+            {
+                _userService.DeleteUser (id);
+                return Ok( );
+            }
+            catch( ServiceException se )
+            {
+                var error = new Error
+                {
+                    Message = se.Message,
+                    Code = 12
+                };
+                return Json (error);
+            }
+            catch( Exception ex )
+            {
+                var error = new Error
+                {
+                    Message = ex.Message,
+                    Code = 12
+                };
+                return Json (error);
+            }
         }
 
-        // PUT api/<controller>/5
-        public void Put ( int id, [ FromBody ] string value )
+        // PUT api/Account/5
+        [ AllowAnonymous ]
+        public IHttpActionResult Update ( UserViewModel userModel )
         {
-        }
-
-        // DELETE api/<controller>/5
-        public void Delete ( int id )
-        {
+            try
+            {
+                Mapper.Initialize (
+                    cfg => cfg.CreateMap<UserViewModel, UserDTO>( ));
+                var viewDto = Mapper.Map<UserViewModel, UserDTO> (userModel);
+                _userService.UpdateUser (viewDto);
+                return Ok( );
+            }
+            catch( ServiceException se )
+            {
+                var error = new Error
+                {
+                    Message = se.Message,
+                    Code = 12
+                };
+                return Json (error);
+            }
+            catch( Exception ex )
+            {
+                var error = new Error
+                {
+                    Message = ex.Message,
+                    Code = 12
+                };
+                return Json (error);
+            }
         }
     }
 }

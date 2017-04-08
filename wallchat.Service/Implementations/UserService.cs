@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
 using AutoMapper;
 using NLog;
@@ -28,13 +27,16 @@ namespace wallchat.Service.Implementations
             _userRepository = userRepository;
         }
 
-        public User FindUser ( long id )
+        public UserDTO FindUser ( long id )
         {
             try
             {
                 var user = _userRepository.GetById (id);
+                Mapper.Initialize (
+                    cfg => cfg.CreateMap<User, UserDTO>( ));
+                var userDto = Mapper.Map<User, UserDTO> (user);
                 _logger.Info ("Get User: id = " + id);
-                return user;
+                return userDto;
             }
             catch( RepositoryException rep )
             {
@@ -138,7 +140,7 @@ namespace wallchat.Service.Implementations
                 _logger.Info ("Start getting all users");
                 var users = _userRepository.GetMany (where);
                 Mapper.Initialize (
-                    cfg => cfg.CreateMap<User, UserDTO>());
+                    cfg => cfg.CreateMap<User, UserDTO>( ));
                 var usersDto = Mapper.Map<IEnumerable<User>, List<UserDTO>> (users);
                 _logger.Info ("Get all users");
                 return usersDto;

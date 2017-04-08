@@ -27,14 +27,18 @@ namespace wallchat.Api.Models.User
         public long Id { get; set; }
         public string UserId { get; set; }
         public virtual Role Role { get; set; }
-        [StringLength(14)]
+
+        [ StringLength ( 14 ) ]
         public string UserName { get; set; }
-        [DataType(DataType.EmailAddress)]
+
+        [ DataType ( DataType.EmailAddress ) ]
         public string Email { get; set; }
+
         public bool EmailConfirmed { get; set; }
         public string PhoneNumber { get; set; }
         public bool PhoneConfirmed { get; set; }
-        [DataType(DataType.DateTime)]
+
+        [ DataType ( DataType.DateTime ) ]
         public DateTime DateRegistration { get; set; }
     }
 }
