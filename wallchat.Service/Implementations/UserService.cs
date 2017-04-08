@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
 using AutoMapper;
 using NLog;
@@ -28,13 +27,16 @@ namespace wallchat.Service.Implementations
             _userRepository = userRepository;
         }
 
-        public User FindUser ( long id )
+        public UserDTO FindUser ( long id )
         {
             try
             {
                 var user = _userRepository.GetById (id);
+                Mapper.Initialize (
+                    cfg => cfg.CreateMap<User, UserDTO>( ));
+                var userDto = Mapper.Map<User, UserDTO> (user);
                 _logger.Info ("Get User: id = " + id);
-                return user;
+                return userDto;
             }
             catch( RepositoryException rep )
             {
@@ -76,8 +78,7 @@ namespace wallchat.Service.Implementations
                     throw new ServiceException ("No user with this id");
 
                 Mapper.Initialize (
-                    cfg => cfg.CreateMap<UserDTO, User>( )
-                        .ForMember ("UserName", opt => opt.MapFrom (src => src.Email)));
+                    cfg => cfg.CreateMap<UserDTO, User>( ));
                 user = Mapper.Map<UserDTO, User> (userDto);
                 _userRepository.Update (user);
                 _logger.Info ("Update user with id " + user.Id);
@@ -110,14 +111,17 @@ namespace wallchat.Service.Implementations
             }
         }
 
-        public List<User> GetAllUsers()
+        public List<UserDTO> GetAllUsers()
         {
             try
             {
                 _logger.Info ("Start getting all users");
                 var users = _userRepository.GetAll( );
+                Mapper.Initialize (
+                    cfg => cfg.CreateMap<User, UserDTO>( ));
+                var usersDto = Mapper.Map<IEnumerable<User>, List<UserDTO>> (users);
                 _logger.Info ("Get all users");
-                return users.ToList( );
+                return usersDto;
             }
             catch( RepositoryException re )
             {
@@ -129,14 +133,17 @@ namespace wallchat.Service.Implementations
             }
         }
 
-        public List<User> GetAllUsers ( Expression<Func<User, bool>> where )
+        public List<UserDTO> GetAllUsers ( Expression<Func<User, bool>> where )
         {
             try
             {
                 _logger.Info ("Start getting all users");
                 var users = _userRepository.GetMany (where);
+                Mapper.Initialize (
+                    cfg => cfg.CreateMap<User, UserDTO>( ));
+                var usersDto = Mapper.Map<IEnumerable<User>, List<UserDTO>> (users);
                 _logger.Info ("Get all users");
-                return users.ToList( );
+                return usersDto;
             }
             catch( RepositoryException re )
             {
