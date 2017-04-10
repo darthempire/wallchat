@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using System.Net.Http.Formatting;
+using System.Net.Http.Headers;
 using System.Web.Http;
 using Newtonsoft.Json.Serialization;
 
@@ -12,16 +13,19 @@ namespace wallchat.Api
             // Web API configuration and services
 
             // Web API routes
-            config.MapHttpAttributeRoutes ( );
+            config.MapHttpAttributeRoutes( );
 
             config.Routes.MapHttpRoute (
                 "DefaultApi",
                 "api/{controller}/{id}",
-                new {id = RouteParameter.Optional}
+                new { id = RouteParameter.Optional }
             );
 
-            var jsonFormatter = config.Formatters.OfType < JsonMediaTypeFormatter > ( ).First ( );
-            jsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver ( );
+            var jsonFormatter = config.Formatters.OfType<JsonMediaTypeFormatter>( ).First( );
+            jsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver( );
+
+            config.Formatters.JsonFormatter.SupportedMediaTypes
+                .Add (new MediaTypeHeaderValue ("text/html"));
         }
     }
 }
