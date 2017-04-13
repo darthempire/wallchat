@@ -1,9 +1,17 @@
 ﻿using System.Collections.Generic;
 using System.Web.Http;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 using wallchat.Service.Contracts;
 
 namespace wallchat.Api.Controllers
 {
+    public class User
+    {
+        public string _UserName { get; set; }
+        public int _Id { get; set; }
+    }
+
     public class ValuesController : ApiController
     {
         private readonly IUserService _userService;
@@ -34,9 +42,16 @@ namespace wallchat.Api.Controllers
             return "value";
         }
 
-        // POST api/<controller>
-        public void Post ( [ FromBody ] string value )
+        public IHttpActionResult Post([FromBody]User user)
         {
+            if (user != null)
+                user._Id += 10;
+
+            return Json(user,
+                new JsonSerializerSettings
+                {
+                    ContractResolver = new CamelCasePropertyNamesContractResolver()
+                });
         }
 
         // PUT api/<controller>/5

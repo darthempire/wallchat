@@ -12,7 +12,7 @@ using wallchat.Service.Contracts;
 
 namespace wallchat.Api.Controllers
 {
-    [ RoutePrefix ( "api/Account" ) ]
+    [ RoutePrefix ( "api/users" ) ]
     public class UsersController : ApiController
     {
         private readonly IUserService _userService;
@@ -42,6 +42,7 @@ namespace wallchat.Api.Controllers
         }
 
         // GET api/Account
+        //[Authorize]
         [Role("manager")]
         public IHttpActionResult Get()
         {
