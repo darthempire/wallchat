@@ -17,7 +17,7 @@ namespace wallchat.Api.Controllers
         }
         //hello
         //sadfasdf
-        //sadfasdf
+        //vasya
         // GET api/<controller>
         public IEnumerable<string> Get()
         {
