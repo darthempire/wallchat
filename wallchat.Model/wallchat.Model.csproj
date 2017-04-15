@@ -52,6 +52,7 @@
     <Compile Include="App\DTO\UserDTO.cs" />
     <Compile Include="App\EF\DatabaseContext.cs" />
     <Compile Include="App\Entity\Client.cs" />
+    <Compile Include="App\Entity\New.cs" />
     <Compile Include="App\Entity\RefreshToken.cs" />
     <Compile Include="App\Entity\Role.cs" />
     <Compile Include="App\Entity\User.cs" />
@@ -72,6 +73,10 @@
     <Compile Include="Migrations\201704061954311_add_role_to_user.Designer.cs">
       <DependentUpon>201704061954311_add_role_to_user.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201704151549200_AddNew.cs" />
+    <Compile Include="Migrations\201704151549200_AddNew.Designer.cs">
+      <DependentUpon>201704151549200_AddNew.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -91,6 +96,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201704061954311_add_role_to_user.resx">
       <DependentUpon>201704061954311_add_role_to_user.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704151549200_AddNew.resx">
+      <DependentUpon>201704151549200_AddNew.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

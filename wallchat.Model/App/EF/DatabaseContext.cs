@@ -14,6 +14,7 @@ namespace wallchat.Model.App.EF
         public DbSet<RefreshToken> RefreshTokens { get; set; }
         public DbSet<Client> Clients { get; set; }
         public DbSet<Role> Roles { get; set; }
+        public DbSet<New> News { get; set; }
 
         public DatabaseContext()
             : base("SanyaLocalConnection")
