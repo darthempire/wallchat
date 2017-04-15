@@ -23,6 +23,21 @@ namespace wallchat.Api.Controllers
         }
 
         // POST api/Account/Register
+        /// <summary>
+        /// asdfasdfasd
+        /// fasd
+        /// f
+        /// asdf
+        /// a
+        /// sdf
+        /// asd
+        /// f
+        /// asd
+        /// f
+        /// dsa
+        /// </summary>
+        /// <param name="userModel"></param>
+        /// <returns></returns>
         [ AllowAnonymous ]
         [ Route ( "Register" ) ]
         public async Task<IHttpActionResult> Register ( RegisterUserModel userModel )
