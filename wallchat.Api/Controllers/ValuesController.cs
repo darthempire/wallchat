@@ -6,11 +6,6 @@ using wallchat.Service.Contracts;
 
 namespace wallchat.Api.Controllers
 {
-    public class User
-    {
-        public string _UserName { get; set; }
-        public int _Id { get; set; }
-    }
 
     public class ValuesController : ApiController
     {
@@ -33,25 +28,7 @@ namespace wallchat.Api.Controllers
 
             //_userService.CreateUser (user);
 
-            return new[] {"value1", "value2"};
-        }
-
-        // GET api/<controller>/5
-        public string Get ( int id )
-        {
-            return "value";
-        }
-
-        public IHttpActionResult Post([FromBody]User user)
-        {
-            if (user != null)
-                user._Id += 10;
-
-            return Json(user,
-                new JsonSerializerSettings
-                {
-                    ContractResolver = new CamelCasePropertyNamesContractResolver()
-                });
+            return new [] { "value1", "value2" };
         }
 
         // PUT api/<controller>/5
