@@ -17,7 +17,7 @@ namespace wallchat.Model.App.EF
         public DbSet<New> News { get; set; }
 
         public DatabaseContext()
-            : base("SanyaLocalConnection")
+            : base("LocalConnection")
         {
 
         }

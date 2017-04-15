@@ -73,6 +73,10 @@
     <Compile Include="Migrations\201704061954311_add_role_to_user.Designer.cs">
       <DependentUpon>201704061954311_add_role_to_user.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201704151455446_Compare user to new.cs" />
+    <Compile Include="Migrations\201704151455446_Compare user to new.Designer.cs">
+      <DependentUpon>201704151455446_Compare user to new.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\201704151549200_AddNew.cs" />
     <Compile Include="Migrations\201704151549200_AddNew.Designer.cs">
       <DependentUpon>201704151549200_AddNew.cs</DependentUpon>
@@ -96,6 +100,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201704061954311_add_role_to_user.resx">
       <DependentUpon>201704061954311_add_role_to_user.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704151455446_Compare user to new.resx">
+      <DependentUpon>201704151455446_Compare user to new.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201704151549200_AddNew.resx">
       <DependentUpon>201704151549200_AddNew.cs</DependentUpon>
