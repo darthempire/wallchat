@@ -16,7 +16,7 @@ namespace wallchat.Model.App.EF
         public DbSet<Role> Roles { get; set; }
 
         public DatabaseContext()
-            : base("LocalConnection")
+            : base("SanyaLocalConnection")
         {
 
         }
