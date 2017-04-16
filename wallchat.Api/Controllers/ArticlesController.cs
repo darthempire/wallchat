@@ -64,7 +64,7 @@ namespace wallchat.Api.Controllers
                 return BadRequest(ModelState);
             try
             {
-                var article = new RegisterArticleDTO () { Text = articleModel.Text };
+                var article = new RegisterArticleDTO () { Text = articleModel.Text,Header = articleModel.Header,ImageUrl = articleModel.ImageUrl,ShortDescription = articleModel.ShortDescription};
                 _articleService.Create(article);
                 return Ok();
             }

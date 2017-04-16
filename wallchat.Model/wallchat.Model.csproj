@@ -78,6 +78,10 @@
     <Compile Include="Migrations\201704152109569_create article.Designer.cs">
       <DependentUpon>201704152109569_create article.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201704161356051_add some fields in Article.cs" />
+    <Compile Include="Migrations\201704161356051_add some fields in Article.Designer.cs">
+      <DependentUpon>201704161356051_add some fields in Article.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -100,6 +104,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201704152109569_create article.resx">
       <DependentUpon>201704152109569_create article.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704161356051_add some fields in Article.resx">
+      <DependentUpon>201704161356051_add some fields in Article.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

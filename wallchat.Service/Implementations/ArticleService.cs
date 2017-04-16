@@ -98,6 +98,10 @@ namespace wallchat.Service.Implementations
             if (articleDTO != null)
             {
                 article.Text = articleDTO.Text;
+                article.ImageUrl = articleDTO.ImageUrl;
+                article.Header = articleDTO.Header;
+                article.ShortDescription = articleDTO.ShortDescription;
+                article.PublishDate = DateTime.Now;
                 article.UserId = 1;
                 _newRepository.Add(article);
             }
@@ -116,6 +120,10 @@ namespace wallchat.Service.Implementations
                     cfg => cfg.CreateMap<ArticleDTO, Article>());
                 article.Id = articleDto.Id;
                 article.Text = articleDto.Text;
+                article.ImageUrl = articleDto.ImageUrl;
+                article.Header = articleDto.Header;
+                article.ShortDescription = articleDto.ShortDescription;
+                article.PublishDate = DateTime.Now;
                 _newRepository.Update(article);
                 _logger.Info("Update article with id " + article.Id);
             }
