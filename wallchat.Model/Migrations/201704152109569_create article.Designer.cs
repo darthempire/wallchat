@@ -7,13 +7,13 @@ namespace wallchat.Model.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class Compareusertonew : IMigrationMetadata
+    public sealed partial class createarticle : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Compareusertonew));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(createarticle));
         
         string IMigrationMetadata.Id
         {
-            get { return "201704151455446_Compare user to new"; }
+            get { return "201704152109569_create article"; }
         }
         
         string IMigrationMetadata.Source
