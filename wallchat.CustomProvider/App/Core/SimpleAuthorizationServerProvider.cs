@@ -88,6 +88,7 @@ namespace wallchat.CustomProvider.App.Core
 
             var identity = new ClaimsIdentity (context.Options.AuthenticationType);
             identity.AddClaim (new Claim ("name", context.UserName));
+            //add id
             identity.AddClaim (new Claim ("role", roleName));
 
             var props = new AuthenticationProperties (

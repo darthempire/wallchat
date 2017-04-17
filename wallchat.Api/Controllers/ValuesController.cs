@@ -21,7 +21,7 @@ namespace wallchat.Api.Controllers
         // GET api/<controller>
         public IEnumerable<string> Get()
         {
-            return new [] { Request.RequestUri.AbsoluteUri, Request.Headers.ToString(  ) };
+            return new [] { ActionContext.RequestContext.Principal.Identity.AuthenticationType, Request.RequestUri.AbsoluteUri, Request.Headers.ToString(  ) };
         }
 
         // PUT api/<controller>/5
