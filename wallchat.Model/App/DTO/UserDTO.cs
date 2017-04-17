@@ -6,7 +6,7 @@ namespace wallchat.Model.App.DTO
 {
     public class UserDTO
     {
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         public Role Role { get; set; }
         public int RoleId { get; set; }
