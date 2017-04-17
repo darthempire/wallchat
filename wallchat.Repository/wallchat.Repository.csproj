@@ -43,6 +43,8 @@
     <Compile Include="App\Authorization\ClientRepository.cs" />
     <Compile Include="App\Authorization\RefreshTokenRepository.cs" />
     <Compile Include="App\Authorization\UserRepository.cs" />
+    <Compile Include="App\File\FileRepository.cs" />
+    <Compile Include="App\News\ArticleRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
