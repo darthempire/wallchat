@@ -49,9 +49,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App\DTO\ArticleDTO.cs" />
+    <Compile Include="App\DTO\FileDTO.cs" />
     <Compile Include="App\DTO\UserDTO.cs" />
     <Compile Include="App\EF\DatabaseContext.cs" />
+    <Compile Include="App\Entity\Article.cs" />
     <Compile Include="App\Entity\Client.cs" />
+    <Compile Include="App\Entity\File.cs" />
     <Compile Include="App\Entity\RefreshToken.cs" />
     <Compile Include="App\Entity\Role.cs" />
     <Compile Include="App\Entity\User.cs" />
@@ -72,6 +76,18 @@
     <Compile Include="Migrations\201704061954311_add_role_to_user.Designer.cs">
       <DependentUpon>201704061954311_add_role_to_user.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201704152109569_create article.cs" />
+    <Compile Include="Migrations\201704152109569_create article.Designer.cs">
+      <DependentUpon>201704152109569_create article.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704161356051_add some fields in Article.cs" />
+    <Compile Include="Migrations\201704161356051_add some fields in Article.Designer.cs">
+      <DependentUpon>201704161356051_add some fields in Article.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704171205214_add new File entity.cs" />
+    <Compile Include="Migrations\201704171205214_add new File entity.Designer.cs">
+      <DependentUpon>201704171205214_add new File entity.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -91,6 +107,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201704061954311_add_role_to_user.resx">
       <DependentUpon>201704061954311_add_role_to_user.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704152109569_create article.resx">
+      <DependentUpon>201704152109569_create article.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704161356051_add some fields in Article.resx">
+      <DependentUpon>201704161356051_add some fields in Article.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704171205214_add new File entity.resx">
+      <DependentUpon>201704171205214_add new File entity.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

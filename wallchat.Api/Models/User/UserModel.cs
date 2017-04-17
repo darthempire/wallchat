@@ -22,7 +22,7 @@ namespace wallchat.Api.Models.User
         public string ConfirmPassword { get; set; }
     }
 
-    public class UserViewModel
+    public class UserModel
     {
         public long Id { get; set; }
         public string UserId { get; set; }

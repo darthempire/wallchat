@@ -50,8 +50,8 @@ namespace wallchat.Api.Controllers
             {
                 var users = _userService.GetAllUsers( );
                 Mapper.Initialize (
-                    cfg => cfg.CreateMap<UserDTO, UserViewModel>( ));
-                var viewUsers = Mapper.Map<List<UserDTO>, List<UserViewModel>> (users);
+                    cfg => cfg.CreateMap<UserDTO, UserModel>( ));
+                var viewUsers = Mapper.Map<List<UserDTO>, List<UserModel>> (users);
                 return Json (viewUsers);
             }
             catch( ServiceException se )
@@ -82,8 +82,8 @@ namespace wallchat.Api.Controllers
             {
                 var user = _userService.FindUser (id);
                 Mapper.Initialize (
-                    cfg => cfg.CreateMap<UserDTO, UserViewModel>( ));
-                var viewUser = Mapper.Map<UserDTO, UserViewModel> (user);
+                    cfg => cfg.CreateMap<UserDTO, UserModel>( ));
+                var viewUser = Mapper.Map<UserDTO, UserModel> (user);
                 return Json (viewUser);
             }
             catch( ServiceException se )
@@ -137,13 +137,13 @@ namespace wallchat.Api.Controllers
 
         // PUT api/Account/5
         [Role("manager")]
-        public IHttpActionResult Update ( UserViewModel userModel )
+        public IHttpActionResult Update ( UserModel userModel )
         {
             try
             {
                 Mapper.Initialize (
-                    cfg => cfg.CreateMap<UserViewModel, UserDTO>( ));
-                var viewDto = Mapper.Map<UserViewModel, UserDTO> (userModel);
+                    cfg => cfg.CreateMap<UserModel, UserDTO>( ));
+                var viewDto = Mapper.Map<UserModel, UserDTO> (userModel);
                 _userService.UpdateUser (viewDto);
                 return Ok( );
             }
