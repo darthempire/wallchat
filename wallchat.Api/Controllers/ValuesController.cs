@@ -16,7 +16,18 @@ namespace wallchat.Api.Controllers
             _userService = userService;
         }
         //hello
-        //sadfasdf
+        //sadfasd
+        /// <summary>
+        /// fdsaafdsf
+        /// sadf
+        /// sad
+        /// fasd
+        /// f
+        /// asd
+        /// f
+        /// asdf
+        /// </summary>
+        /// <returns></returns>
         //vasya
         // GET api/<controller>
         public IEnumerable<string> Get()
