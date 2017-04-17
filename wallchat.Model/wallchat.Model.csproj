@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App\DTO\ArticleDTO.cs" />
+    <Compile Include="App\DTO\FileDTO.cs" />
     <Compile Include="App\DTO\UserDTO.cs" />
     <Compile Include="App\EF\DatabaseContext.cs" />
     <Compile Include="App\Entity\Article.cs" />
