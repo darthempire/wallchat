@@ -51,7 +51,7 @@
   <ItemGroup>
     <Compile Include="App\DTO\ArticleDTO.cs" />
     <Compile Include="App\DTO\FileDTO.cs" />
-    <Compile Include="App\DTO\UserDTO.cs" />
+    <Compile Include="App\DTO\Users\UserDTO.cs" />
     <Compile Include="App\EF\DatabaseContext.cs" />
     <Compile Include="App\Entity\Article.cs" />
     <Compile Include="App\Entity\Client.cs" />
@@ -60,6 +60,7 @@
     <Compile Include="App\Entity\Role.cs" />
     <Compile Include="App\Entity\User.cs" />
     <Compile Include="App\Enums\ApplicationTypes.cs" />
+    <Compile Include="App\Enums\Roles.cs" />
     <Compile Include="Migrations\201703281853149_Initial, add user, client, refreshtoken.cs" />
     <Compile Include="Migrations\201703281853149_Initial, add user, client, refreshtoken.Designer.cs">
       <DependentUpon>201703281853149_Initial, add user, client, refreshtoken.cs</DependentUpon>

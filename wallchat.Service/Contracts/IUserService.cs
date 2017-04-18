@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
-using wallchat.Model.App.DTO;
+using wallchat.Model.App.DTO.Users;
 using wallchat.Model.App.Entity;
 
 namespace wallchat.Service.Contracts

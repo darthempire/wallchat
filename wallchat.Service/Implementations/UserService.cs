@@ -5,8 +5,9 @@ using AutoMapper;
 using NLog;
 using wallchat.DAL.App.Contracts;
 using wallchat.Helpers.Exceptions;
-using wallchat.Model.App.DTO;
+using wallchat.Model.App.DTO.Users;
 using wallchat.Model.App.Entity;
+using wallchat.Model.App.Enums;
 using wallchat.Repository.App.Authorization;
 using wallchat.Service.Contracts;
 
@@ -25,6 +26,24 @@ namespace wallchat.Service.Implementations
             _logger = LogManager.GetCurrentClassLogger( );
             _unitOfWork = unitOfWork;
             _userRepository = userRepository;
+        }
+
+        public void DeleteUser ( long id )
+        {
+            try
+            {
+                _logger.Info ("Start deleting user with id " + id);
+                _userRepository.Delete (p => p.Id == id);
+                _logger.Info ("Delete User with id " + id);
+            }
+            catch( RepositoryException re )
+            {
+                throw new ServiceException ("Repository ex: " + re.Message);
+            }
+            catch( Exception ex )
+            {
+                throw new ServiceException (ex.Message);
+            }
         }
 
         public UserDTO FindUser ( long id )
@@ -53,18 +72,27 @@ namespace wallchat.Service.Implementations
 
         public void CreateUser ( RegisterUserDTO userDto )
         {
-            var user = new User( );
-
-            if( userDto != null )
+            try
             {
-                user.UserName = userDto.UserName;
-                user.PasswordHash = userDto.PasswordHash;
-                user.PhoneNumber = userDto.PhoneNumber;
-                user.Email = userDto.Email;
-                user.DateRegistration = DateTime.Now;
-                user.RoleId = 1;
+                if (userDto == null) return;
+                _logger.Info("Start create new user");
+                Mapper.Initialize(
+                    cfg => cfg.CreateMap<RegisterUserDTO, User>());
+                var user = Mapper.Map<RegisterUserDTO, User>(userDto);
 
-                _userRepository.Add (user);
+                user.DateRegistration = DateTime.Now;
+                user.RoleId = Convert.ToInt32(Roles.User);
+
+                _userRepository.Add(user);
+                _logger.Info("User with Id " + user.Id + "created");
+            }
+            catch (RepositoryException re)
+            {
+                throw new ServiceException("Repositiry ex: " + re.Message);
+            }
+            catch (Exception ex)
+            {
+                throw new ServiceException(ex.Message);
             }
         }
 
@@ -86,24 +114,6 @@ namespace wallchat.Service.Implementations
             catch( RepositoryException re )
             {
                 throw new ServiceException ("Repositiry ex: " + re.Message);
-            }
-            catch( Exception ex )
-            {
-                throw new ServiceException (ex.Message);
-            }
-        }
-
-        public void DeleteUser ( long id )
-        {
-            try
-            {
-                _logger.Info ("Start deleting user with id " + id);
-                _userRepository.Delete (p => p.Id == id);
-                _logger.Info ("Delete User with id " + id);
-            }
-            catch( RepositoryException re )
-            {
-                throw new ServiceException ("Repository ex: " + re.Message);
             }
             catch( Exception ex )
             {
