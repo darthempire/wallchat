@@ -8,8 +8,6 @@ namespace wallchat.Api.Models.News
     public class RegisterArticleModel
     {
         public string Text { get; set; }
-        
-        public DateTime PublishDate { get; set; }
 
         public string Header { get; set; }
 

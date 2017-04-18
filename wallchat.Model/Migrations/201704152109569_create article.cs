@@ -19,20 +19,10 @@ namespace wallchat.Model.Migrations
                 .ForeignKey("dbo.Users", t => t.UserId, cascadeDelete: true)
                 .Index(t => t.UserId);
             
-            DropTable("dbo.News");
         }
         
         public override void Down()
-        {
-            CreateTable(
-                "dbo.News",
-                c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        Text = c.String(),
-                    })
-                .PrimaryKey(t => t.Id);
-            
+        {         
             DropForeignKey("dbo.Articles", "UserId", "dbo.Users");
             DropIndex("dbo.Articles", new[] { "UserId" });
             DropTable("dbo.Articles");
