@@ -88,6 +88,14 @@
     <Compile Include="Migrations\201704171205214_add new File entity.Designer.cs">
       <DependentUpon>201704171205214_add new File entity.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201704181653119_update user.cs" />
+    <Compile Include="Migrations\201704181653119_update user.Designer.cs">
+      <DependentUpon>201704181653119_update user.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704181656354_update user repair.cs" />
+    <Compile Include="Migrations\201704181656354_update user repair.Designer.cs">
+      <DependentUpon>201704181656354_update user repair.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -116,6 +124,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201704171205214_add new File entity.resx">
       <DependentUpon>201704171205214_add new File entity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704181653119_update user.resx">
+      <DependentUpon>201704181653119_update user.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704181656354_update user repair.resx">
+      <DependentUpon>201704181656354_update user repair.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
