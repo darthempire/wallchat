@@ -1,12 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Web.Http;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
 using wallchat.Service.Contracts;
 
 namespace wallchat.Api.Controllers
 {
-
     public class ValuesController : ApiController
     {
         private readonly IUserService _userService;
@@ -15,13 +12,16 @@ namespace wallchat.Api.Controllers
         {
             _userService = userService;
         }
+
         //hello
-        //sadfasdf
+        //sadfasd
+        /// </summary>
+        /// <returns></returns>
         //vasya
         // GET api/<controller>
         public IEnumerable<string> Get()
         {
-            return new [] { Request.RequestUri.AbsoluteUri, Request.Headers.ToString(  ) };
+            return new [] { Request.RequestUri.AbsoluteUri, Request.Headers.ToString( ) };
         }
 
         // PUT api/<controller>/5
@@ -30,7 +30,7 @@ namespace wallchat.Api.Controllers
         }
 
         // DELETE api/<controller>/5
-        public void Delete ( int id )
+        public void Delete (int id)
         {
         }
     }

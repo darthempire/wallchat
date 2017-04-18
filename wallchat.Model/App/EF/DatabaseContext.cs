@@ -18,7 +18,7 @@ namespace wallchat.Model.App.EF
         public  DbSet<File> Files { get; set; }
 
         public DatabaseContext()
-            : base("LocalConnection")
+            : base("Remote")
         {
 
         }
