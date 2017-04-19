@@ -9,7 +9,7 @@ namespace wallchat.Service.Contracts
     public interface IUserService
     {
         UserDTO FindUser ( long id );
-        void UpdateUser ( UserDTO userDto );
+        void UpdateUser ( UpdateUserDTO userDto );
         void DeleteUser ( long id );
         List<UserDTO> GetAllUsers();
         List<UserDTO> GetAllUsers ( Expression<Func<User, bool>> where );

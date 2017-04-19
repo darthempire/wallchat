@@ -76,11 +76,13 @@ namespace wallchat.Service.Implementations
             {
                 if (userDto == null) return;
                 _logger.Info("Start create new user");
+
                 Mapper.Initialize(
                     cfg => cfg.CreateMap<RegisterUserDTO, User>());
                 var user = Mapper.Map<RegisterUserDTO, User>(userDto);
 
                 user.DateRegistration = DateTime.Now;
+                user.LastUpdate = DateTime.Now;
                 user.RoleId = Convert.ToInt32(Roles.User);
 
                 _userRepository.Add(user);
@@ -96,18 +98,22 @@ namespace wallchat.Service.Implementations
             }
         }
 
-        public void UpdateUser ( UserDTO userDto )
+        public void UpdateUser (UpdateUserDTO userDto )
         {
             try
             {
                 _logger.Info ("Start updatin user with id " + userDto.Id);
+
                 var user = _userRepository.GetById (userDto.Id);
                 if( user == null )
                     throw new ServiceException ("No user with this id");
 
                 Mapper.Initialize (
-                    cfg => cfg.CreateMap<UserDTO, User>( ));
-                user = Mapper.Map<UserDTO, User> (userDto);
+                    cfg => cfg.CreateMap<UpdateUserDTO, User>( ));
+                user = Mapper.Map<UpdateUserDTO, User> (userDto);
+
+                user.LastUpdate = DateTime.Now;
+
                 _userRepository.Update (user);
                 _logger.Info ("Update user with id " + user.Id);
             }

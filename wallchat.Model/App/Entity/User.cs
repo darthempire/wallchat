@@ -32,11 +32,13 @@ namespace wallchat.Model.App.Entity
 
         public int AccessFailedCount { get; set; }
         public bool IsBlocked { get; set; }
+        public string Information { get; set; }
 
         [ DataType ( DataType.DateTime ) ]
         public DateTime? BlockDate { get; set; }
 
-        public string Information { get; set; }
+        [ DataType ( DataType.DateTime ) ]
+        public DateTime? LastUpdate { get; set; }
 
         public virtual Role Role { get; set; }
         public int RoleId { get; set; }
