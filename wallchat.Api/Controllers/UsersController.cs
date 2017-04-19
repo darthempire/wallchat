@@ -7,7 +7,7 @@ using wallchat.Api.App.Filters;
 using wallchat.Api.Models.Errors;
 using wallchat.Api.Models.User;
 using wallchat.Helpers.Exceptions;
-using wallchat.Model.App.DTO;
+using wallchat.Model.App.DTO.Users;
 using wallchat.Service.Contracts;
 
 namespace wallchat.Api.Controllers
@@ -22,7 +22,7 @@ namespace wallchat.Api.Controllers
             _userService = userService;
         }
 
-      //lol
+        //lol
         [ AllowAnonymous ]
         [ Route ( "Register" ) ]
         public async Task<IHttpActionResult> Register ( RegisterUserModel userModel )
@@ -43,7 +43,7 @@ namespace wallchat.Api.Controllers
 
         // GET api/Account
         //[Authorize]
-        [Role("manager")]
+        [ Role ( "manager" ) ]
         public IHttpActionResult Get()
         {
             try
@@ -75,7 +75,7 @@ namespace wallchat.Api.Controllers
         }
 
         // GET api/Account/5
-        [Role("manager")]
+        [ Role ( "manager" ) ]
         public IHttpActionResult Get ( int id )
         {
             try
@@ -107,7 +107,7 @@ namespace wallchat.Api.Controllers
         }
 
         // DELETE api/Account/5
-        [Role("supermanager")]
+        [ Role ( "supermanager" ) ]
         public IHttpActionResult Delete ( int id )
         {
             try
@@ -136,14 +136,14 @@ namespace wallchat.Api.Controllers
         }
 
         // PUT api/Account/5
-        [Role("manager")]
+        [ Role ( "manager" ) ]
         public IHttpActionResult Update ( UserModel userModel )
         {
             try
             {
                 Mapper.Initialize (
-                    cfg => cfg.CreateMap<UserModel, UserDTO>( ));
-                var viewDto = Mapper.Map<UserModel, UserDTO> (userModel);
+                    cfg => cfg.CreateMap<UserModel, UpdateUserDTO>( ));
+                var viewDto = Mapper.Map<UserModel, UpdateUserDTO> (userModel);
                 _userService.UpdateUser (viewDto);
                 return Ok( );
             }
