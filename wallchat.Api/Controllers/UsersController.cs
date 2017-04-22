@@ -108,6 +108,7 @@ namespace wallchat.Api.Controllers
 
         // DELETE api/Account/5
         [ Role ( "supermanager" ) ]
+        [ HttpDelete ]
         public IHttpActionResult Delete ( int id )
         {
             try
@@ -137,13 +138,14 @@ namespace wallchat.Api.Controllers
 
         // PUT api/Account/5
         [ Role ( "manager" ) ]
-        public IHttpActionResult Update ( UserModel userModel )
+        [ HttpPut ]
+        public IHttpActionResult Update ( UserUpdateModel userModel )
         {
             try
             {
                 Mapper.Initialize (
-                    cfg => cfg.CreateMap<UserModel, UpdateUserDTO>( ));
-                var viewDto = Mapper.Map<UserModel, UpdateUserDTO> (userModel);
+                    cfg => cfg.CreateMap<UserUpdateModel, UpdateUserDTO>( ));
+                var viewDto = Mapper.Map<UserUpdateModel, UpdateUserDTO> (userModel);
                 _userService.UpdateUser (viewDto);
                 return Ok( );
             }

@@ -41,25 +41,25 @@ namespace wallchat.Model.Migrations
                     RoleName = "manager"
                 });
 
-            context.Users.AddOrUpdate (
-                p => p.Id,
-                new User
-                {
-                    Id = 1,
-                    UserName = "Vasya",
-                    PasswordHash = "123456",
-                    DateRegistration = DateTime.Now,
-                    RoleId = 1
-                },
-                new User
-                {
-                    Id = 2,
-                    UserName = "darthvasya",
-                    PasswordHash = "123456",
-                    DateRegistration = DateTime.Now,
-                    RoleId = 2
-                }
-            );
+            //context.Users.AddOrUpdate (
+            //    p => p.Id,
+            //    new User
+            //    {
+            //        Id = 1,
+            //        UserName = "Vasya",
+            //        PasswordHash = "123456",
+            //        DateRegistration = DateTime.Now,
+            //        RoleId = 1
+            //    },
+            //    new User
+            //    {
+            //        Id = 2,
+            //        UserName = "darthvasya",
+            //        PasswordHash = "123456",
+            //        DateRegistration = DateTime.Now,
+            //        RoleId = 2
+            //    }
+            //);
 
             context.Clients.AddOrUpdate (
                 p => p.Id,

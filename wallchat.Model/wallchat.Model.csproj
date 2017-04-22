@@ -97,6 +97,18 @@
     <Compile Include="Migrations\201704181656354_update user repair.Designer.cs">
       <DependentUpon>201704181656354_update user repair.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201704191703408_user key id.cs" />
+    <Compile Include="Migrations\201704191703408_user key id.Designer.cs">
+      <DependentUpon>201704191703408_user key id.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704191803418_user del unik.cs" />
+    <Compile Include="Migrations\201704191803418_user del unik.Designer.cs">
+      <DependentUpon>201704191803418_user del unik.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704191821155_user del key.cs" />
+    <Compile Include="Migrations\201704191821155_user del key.Designer.cs">
+      <DependentUpon>201704191821155_user del key.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -131,6 +143,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201704181656354_update user repair.resx">
       <DependentUpon>201704181656354_update user repair.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704191703408_user key id.resx">
+      <DependentUpon>201704191703408_user key id.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704191803418_user del unik.resx">
+      <DependentUpon>201704191803418_user del unik.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704191821155_user del key.resx">
+      <DependentUpon>201704191821155_user del key.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
