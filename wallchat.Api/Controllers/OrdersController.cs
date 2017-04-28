@@ -7,8 +7,7 @@ namespace wallchat.Api.Controllers
     [RoutePrefix("api/Orders")]
     public class OrdersController : ApiController
     {
-        [Authorize]
-        [Role("manager")]
+        [Role("user")]
         [Route("")]
         public IHttpActionResult Get()
         {

@@ -43,7 +43,7 @@ namespace wallchat.Api.Controllers
 
         // GET api/Account
         //[Authorize]
-        [ Role ( "manager" ) ]
+        [ Role ( "user" ) ]
         public IHttpActionResult Get()
         {
             try
@@ -75,7 +75,7 @@ namespace wallchat.Api.Controllers
         }
 
         // GET api/Account/5
-        [ Role ( "manager" ) ]
+        [ Role ("user") ]
         public IHttpActionResult Get ( int id )
         {
             try

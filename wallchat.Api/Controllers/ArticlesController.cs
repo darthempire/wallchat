@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Web.Http;
 using AutoMapper;
+using wallchat.Api.App.Filters;
 using wallchat.Api.Models.Errors;
 using wallchat.Api.Models.News;
 using wallchat.Helpers.Exceptions;
@@ -22,7 +23,7 @@ namespace wallchat.Api.Controllers
         }
 
         // GET api/<controller>
-
+        [Role("user")]
         public IHttpActionResult Get()
         {
             try
@@ -54,7 +55,7 @@ namespace wallchat.Api.Controllers
         }
 
 
-        [ AllowAnonymous ]
+        [Role("user")]
         public async Task<IHttpActionResult> Create ( RegisterArticleModel articleModel )
         {
             if( !ModelState.IsValid )
@@ -111,6 +112,7 @@ namespace wallchat.Api.Controllers
 
         // PUT api/<controller>/5
         [ HttpPut ]
+        [Role("user")]
         public IHttpActionResult Update ( ArticleModel articleModel )
         {
             try
@@ -142,6 +144,7 @@ namespace wallchat.Api.Controllers
         }
 
         [ HttpDelete ]
+        [Role("user")]
         public IHttpActionResult Delete ( int id )
         {
             try
