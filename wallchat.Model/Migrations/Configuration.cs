@@ -41,25 +41,39 @@ namespace wallchat.Model.Migrations
                     RoleName = "manager"
                 });
 
-            //context.Users.AddOrUpdate (
-            //    p => p.Id,
-            //    new User
-            //    {
-            //        Id = 1,
-            //        UserName = "Vasya",
-            //        PasswordHash = "123456",
-            //        DateRegistration = DateTime.Now,
-            //        RoleId = 1
-            //    },
-            //    new User
-            //    {
-            //        Id = 2,
-            //        UserName = "darthvasya",
-            //        PasswordHash = "123456",
-            //        DateRegistration = DateTime.Now,
-            //        RoleId = 2
-            //    }
-            //);
+            context.Users.AddOrUpdate (
+                p => p.Id,
+                new User
+                {
+                    Id = 1,
+                    UserName = "Vasya",
+                    PasswordHash = "123456",
+                    DateRegistration = DateTime.Now,
+                    RoleId = 1
+                },
+                new User
+                {
+                    Id = 2,
+                    UserName = "darthvasya",
+                    PasswordHash = "123456",
+                    DateRegistration = DateTime.Now,
+                    RoleId = 2
+                }
+            );
+
+            context.News.AddOrUpdate (
+                p => p.Id,
+                new Article
+                {
+                    Id = 1,
+                    UserId = 1,
+                    PublishDate = DateTime.Now,
+                    Header = "Махмат фарева",
+                    ShortDescription = "махмат",
+                    Text = "text",
+                    ImageUrl = "http://wallpapercave.com/wp/g6DWiE6.png"
+                }
+            );
 
             context.Clients.AddOrUpdate (
                 p => p.Id,
