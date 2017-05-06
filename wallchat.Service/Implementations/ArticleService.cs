@@ -6,6 +6,7 @@ using NLog;
 using wallchat.DAL.App.Contracts;
 using wallchat.Helpers.Exceptions;
 using wallchat.Model.App.DTO;
+using wallchat.Model.App.DTO.Users;
 using wallchat.Model.App.Entity;
 using wallchat.Repository.App.Authorization;
 using wallchat.Repository.App.News;
@@ -16,9 +17,9 @@ namespace wallchat.Service.Implementations
     public class ArticleService : IArticleService
     {
         private readonly Logger _logger;
-        private readonly IUserRepository _userRepository;
         private readonly INewRepository _newRepository;
         private readonly IUnitOfWork _unitOfWork;
+        private readonly IUserRepository _userRepository;
 
         public ArticleService(IUnitOfWork unitOfWork, INewRepository newRepository, IUserRepository userRepository)
         {
@@ -32,8 +33,8 @@ namespace wallchat.Service.Implementations
         {
             try
             {
-                var user = _newRepository.GetAll().FirstOrDefault( p => p.Id == id && p.UserId == currentUserId);
-                if (user == null)
+                var user = _newRepository.GetAll().FirstOrDefault(p => p.Id == id && p.UserId == currentUserId);
+                if( user == null )
                     throw new ServiceException("You don`t have permissions to make this action!");
 
                 _logger.Info("Start deleting article with id " + id);
@@ -55,8 +56,13 @@ namespace wallchat.Service.Implementations
             try
             {
                 var article = _newRepository.GetById(id);
+
                 Mapper.Initialize(
-                    cfg => cfg.CreateMap<Article, ArticleDTO>());
+                    cfg =>
+                    {
+                        cfg.CreateMap<Article, ArticleDTO>();
+                        cfg.CreateMap<User, UserDTO>();
+                    });
                 var articleDto = Mapper.Map<Article, ArticleDTO>(article);
                 _logger.Info("Get Article: id = " + id);
                 return articleDto;
@@ -81,7 +87,11 @@ namespace wallchat.Service.Implementations
                 _logger.Info("Start getting all articles");
                 var news = _newRepository.GetAll();
                 Mapper.Initialize(
-                    cfg => cfg.CreateMap<Article, ArticleDTO>());
+                    cfg =>
+                    {
+                        cfg.CreateMap<Article, ArticleDTO>();
+                        cfg.CreateMap<User, UserDTO>();
+                    });
                 var newDto = Mapper.Map<IEnumerable<Article>, List<ArticleDTO>>(news);
                 _logger.Info("Get all articles");
                 return newDto;
@@ -116,8 +126,9 @@ namespace wallchat.Service.Implementations
         {
             try
             {
-                var user = _newRepository.GetAll().FirstOrDefault(p => p.Id == articleDto.Id && p.UserId == articleDto.UserId);
-                if (user == null)
+                var user =
+                    _newRepository.GetAll().FirstOrDefault(p => p.Id == articleDto.Id && p.UserId == articleDto.UserId);
+                if( user == null )
                     throw new ServiceException("You don`t have permissions to make this action!");
 
                 _logger.Info("Start update in article with id " + articleDto.Id);

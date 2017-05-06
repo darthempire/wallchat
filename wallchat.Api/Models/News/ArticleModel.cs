@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using wallchat.Model.App.DTO.Users;
 
 namespace wallchat.Api.Models.News
 {
@@ -15,7 +16,7 @@ namespace wallchat.Api.Models.News
         public string Text { get; set; }
         public string ImageUrl { get; set; }
 
-        public virtual Model.App.Entity.User User { get; set; }
+        public virtual UserDTO User { get; set; }
         public long UserId { get; set; }
     }
 }

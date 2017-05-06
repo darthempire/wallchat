@@ -16,6 +16,7 @@ namespace wallchat.Model.App.EF
         public DbSet<Role> Roles { get; set; }
         public DbSet<Article> News { get; set; }
         public DbSet<File> Files { get; set; }
+        public DbSet<Subscriber> Subscribers { get; set; }
 
         public void Commit()
         {

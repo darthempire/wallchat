@@ -58,12 +58,21 @@
     <Compile Include="App\Entity\File.cs" />
     <Compile Include="App\Entity\RefreshToken.cs" />
     <Compile Include="App\Entity\Role.cs" />
+    <Compile Include="App\Entity\Subscriber.cs" />
     <Compile Include="App\Entity\User.cs" />
     <Compile Include="App\Enums\ApplicationTypes.cs" />
     <Compile Include="App\Enums\Roles.cs" />
     <Compile Include="Migrations\201704281746357_Initial.cs" />
     <Compile Include="Migrations\201704281746357_Initial.Designer.cs">
       <DependentUpon>201704281746357_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705061404082_Subscribers.cs" />
+    <Compile Include="Migrations\201705061404082_Subscribers.Designer.cs">
+      <DependentUpon>201705061404082_Subscribers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705061407365_Subscribers add subscriberId.cs" />
+    <Compile Include="Migrations\201705061407365_Subscribers add subscriberId.Designer.cs">
+      <DependentUpon>201705061407365_Subscribers add subscriberId.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -75,6 +84,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201704281746357_Initial.resx">
       <DependentUpon>201704281746357_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705061404082_Subscribers.resx">
+      <DependentUpon>201705061404082_Subscribers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705061407365_Subscribers add subscriberId.resx">
+      <DependentUpon>201705061407365_Subscribers add subscriberId.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

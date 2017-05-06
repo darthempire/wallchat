@@ -16,7 +16,7 @@ namespace wallchat.Model.App.DTO
         public string Text { get; set; }
         public string ImageUrl { get; set; }
 
-        public virtual User User { get; set; }
+        public virtual UserDTO User { get; set; }
         public long UserId { get; set; }
     }
 

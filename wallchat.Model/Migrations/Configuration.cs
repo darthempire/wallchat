@@ -13,7 +13,7 @@ namespace wallchat.Model.Migrations
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed ( DatabaseContext context )
+        protected override void Seed(DatabaseContext context)
         {
             //  This method will be called after migrating to the latest version.
 
@@ -28,7 +28,7 @@ namespace wallchat.Model.Migrations
             //    );
             //
 
-            context.Roles.AddOrUpdate (
+            context.Roles.AddOrUpdate(
                 p => p.Id,
                 new Role
                 {
@@ -41,7 +41,7 @@ namespace wallchat.Model.Migrations
                     RoleName = "manager"
                 });
 
-            context.Users.AddOrUpdate (
+            context.Users.AddOrUpdate(
                 p => p.Id,
                 new User
                 {
@@ -61,7 +61,18 @@ namespace wallchat.Model.Migrations
                 }
             );
 
-            context.News.AddOrUpdate (
+            context.Subscribers.AddOrUpdate(
+                p => p.Id,
+                new Subscriber
+                {
+                    Id = 1,
+                    SubscriberId = 1,
+                    UserId = 2,
+                    DateCreation = DateTime.Now
+                }
+            );
+
+            context.News.AddOrUpdate(
                 p => p.Id,
                 new Article
                 {
@@ -75,7 +86,7 @@ namespace wallchat.Model.Migrations
                 }
             );
 
-            context.Clients.AddOrUpdate (
+            context.Clients.AddOrUpdate(
                 p => p.Id,
                 new Client
                 {

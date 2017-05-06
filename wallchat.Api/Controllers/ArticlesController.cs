@@ -8,8 +8,10 @@ using AutoMapper;
 using wallchat.Api.App.Filters;
 using wallchat.Api.Models.Errors;
 using wallchat.Api.Models.News;
+using wallchat.Api.Models.User;
 using wallchat.Helpers.Exceptions;
 using wallchat.Model.App.DTO;
+using wallchat.Model.App.DTO.Users;
 using wallchat.Service.Contracts;
 
 namespace wallchat.Api.Controllers
@@ -24,6 +26,16 @@ namespace wallchat.Api.Controllers
             _articleService = articleService;
         }
 
+        private long CurrentUserId
+        {
+            get
+            {
+                var principal = RequestContext.Principal as ClaimsPrincipal;
+                var userId = principal?.Claims.FirstOrDefault(c => c.Type == "userId");
+                return userId != null ? Convert.ToInt64(userId?.Value) : 0;
+            }
+        }
+
         // GET api/<controller>
         [ Role("*") ]
         public IHttpActionResult Get()
@@ -32,7 +44,11 @@ namespace wallchat.Api.Controllers
             {
                 var articles = _articleService.GetAllArticles();
                 Mapper.Initialize(
-                    cfg => cfg.CreateMap<ArticleDTO, ArticleModel>());
+                    cfg =>
+                    {
+                        cfg.CreateMap<ArticleDTO, ArticleModel>();
+                        cfg.CreateMap<UserDTO, UserModel>();
+                    });
                 var viewNews = Mapper.Map<List<ArticleDTO>, List<ArticleModel>>(articles);
                 return Json(viewNews);
             }
@@ -57,7 +73,7 @@ namespace wallchat.Api.Controllers
         }
 
         // POST api/<controller>
-        [Role("*")]    
+        [ Role("*") ]
         public async Task<IHttpActionResult> Create(RegisterArticleModel articleModel)
         {
             if( !ModelState.IsValid )
@@ -82,14 +98,18 @@ namespace wallchat.Api.Controllers
         }
 
         // GET api/<controller>/5
-        [Role("*")]
+        [ Role("*") ]
         public IHttpActionResult Get(int id)
         {
             try
             {
                 var article = _articleService.Find(id);
                 Mapper.Initialize(
-                    cfg => cfg.CreateMap<ArticleDTO, ArticleModel>());
+                    cfg =>
+                    {
+                        cfg.CreateMap<ArticleDTO, ArticleModel>();
+                        cfg.CreateMap<UserDTO, UserModel>();
+                    });
                 var viewArticle = Mapper.Map<ArticleDTO, ArticleModel>(article);
                 return Json(viewArticle);
             }
@@ -174,16 +194,6 @@ namespace wallchat.Api.Controllers
                     Code = 12
                 };
                 return Json(error);
-            }
-        }
-
-        private long CurrentUserId
-        {
-            get
-            {
-                var principal = RequestContext.Principal as ClaimsPrincipal;
-                var userId = principal?.Claims.FirstOrDefault(c => c.Type == "userId");
-                return userId != null ? Convert.ToInt64(userId?.Value) : 0;
             }
         }
     }
