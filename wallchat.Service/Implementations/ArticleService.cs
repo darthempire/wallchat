@@ -99,7 +99,7 @@ namespace wallchat.Service.Implementations
                 article.Header = articleDTO.Header;
                 article.ShortDescription = articleDTO.ShortDescription;
                 article.PublishDate = DateTime.Now;
-                article.UserId = 1;
+                article.UserId = articleDTO.UserId;
                 _newRepository.Add (article);
             }
         }

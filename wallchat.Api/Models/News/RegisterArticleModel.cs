@@ -14,5 +14,7 @@ namespace wallchat.Api.Models.News
         public string ShortDescription { get; set; }
 
         public string ImageUrl { get; set; }
+
+        public long UserId { get; set; }
     }
 }

@@ -29,5 +29,7 @@ namespace wallchat.Model.App.DTO
         public string ShortDescription { get; set; }
 
         public string ImageUrl { get; set; }
+
+        public long UserId { get; set; }
     }
 }

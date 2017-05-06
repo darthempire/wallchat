@@ -19,12 +19,12 @@ namespace wallchat.Model.App.EF
 
         public void Commit()
         {
-            SaveChanges( );
+            SaveChanges();
         }
 
         public void CommitAsync()
         {
-            SaveChangesAsync( );
+            SaveChangesAsync();
         }
     }
 }
