@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web.Http;
 using AutoMapper;
@@ -23,7 +25,7 @@ namespace wallchat.Api.Controllers
         }
 
         // GET api/<controller>
-        [ Role("manager", "*") ]
+        [ Role("*") ]
         public IHttpActionResult Get()
         {
             try
@@ -54,9 +56,8 @@ namespace wallchat.Api.Controllers
             }
         }
 
-
-        //[Role("user")]
-        [ AllowAnonymous ]
+        // POST api/<controller>
+        [Role("*")]    
         public async Task<IHttpActionResult> Create(RegisterArticleModel articleModel)
         {
             if( !ModelState.IsValid )
@@ -69,7 +70,7 @@ namespace wallchat.Api.Controllers
                     Header = articleModel.Header,
                     ImageUrl = articleModel.ImageUrl,
                     ShortDescription = articleModel.ShortDescription,
-                    UserId = articleModel.UserId
+                    UserId = CurrentUserId
                 };
                 _articleService.Create(article);
                 return Ok();
@@ -81,7 +82,7 @@ namespace wallchat.Api.Controllers
         }
 
         // GET api/<controller>/5
-        [Role("manager")]
+        [Role("*")]
         public IHttpActionResult Get(int id)
         {
             try
@@ -115,7 +116,7 @@ namespace wallchat.Api.Controllers
 
         // PUT api/<controller>/5
         [ HttpPut ]
-        [ Role("user") ]
+        [ Role("*") ]
         public IHttpActionResult Update(ArticleModel articleModel)
         {
             try
@@ -123,6 +124,7 @@ namespace wallchat.Api.Controllers
                 Mapper.Initialize(
                     cfg => cfg.CreateMap<ArticleModel, ArticleDTO>());
                 var viewDto = Mapper.Map<ArticleModel, ArticleDTO>(articleModel);
+                viewDto.UserId = CurrentUserId;
                 _articleService.Update(viewDto);
                 return Ok();
             }
@@ -147,12 +149,12 @@ namespace wallchat.Api.Controllers
         }
 
         [ HttpDelete ]
-        [ Role("user") ]
+        [ Role("*") ]
         public IHttpActionResult Delete(int id)
         {
             try
             {
-                _articleService.Delete(id);
+                _articleService.Delete(id, CurrentUserId);
                 return Ok();
             }
             catch( ServiceException se )
@@ -172,6 +174,16 @@ namespace wallchat.Api.Controllers
                     Code = 12
                 };
                 return Json(error);
+            }
+        }
+
+        private long CurrentUserId
+        {
+            get
+            {
+                var principal = RequestContext.Principal as ClaimsPrincipal;
+                var userId = principal?.Claims.FirstOrDefault(c => c.Type == "userId");
+                return userId != null ? Convert.ToInt64(userId?.Value) : 0;
             }
         }
     }

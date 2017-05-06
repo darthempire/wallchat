@@ -71,7 +71,7 @@ namespace wallchat.CustomProvider.App.Core
             var allowedOrigin = context.OwinContext.Get<string>("as:clientAllowedOrigin") ?? "*";
             context.OwinContext.Response.Headers.Add("Access-Control-Allow-Origin", new [] { allowedOrigin });
 
-            var roleName = string.Empty;
+            string roleName;
             long userId = 0;
             using(var authRepository = new AuthRepository())
             {
@@ -89,6 +89,7 @@ namespace wallchat.CustomProvider.App.Core
 
             var identity = new ClaimsIdentity(context.Options.AuthenticationType);
             identity.AddClaim(new Claim("name", context.UserName));
+            identity.AddClaim(new Claim("userId", userId.ToString()));
             identity.AddClaim(new Claim("role", "*"));
             identity.AddClaim(new Claim("role", roleName));
 

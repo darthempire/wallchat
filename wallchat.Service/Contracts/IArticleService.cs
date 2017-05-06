@@ -5,9 +5,9 @@ namespace wallchat.Service.Contracts
 {
     public interface IArticleService
     {
-        ArticleDTO Find ( long id );
+        ArticleDTO Find ( int id );
         void Update ( ArticleDTO articleDto );
-        void Delete ( long id );
+        void Delete (int id, long currentUserId );
         List<ArticleDTO> GetAllArticles ();
         void Create(RegisterArticleDTO article);
     }

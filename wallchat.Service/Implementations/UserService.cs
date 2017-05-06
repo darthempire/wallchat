@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Security.Claims;
 using AutoMapper;
 using NLog;
 using wallchat.DAL.App.Contracts;
@@ -16,17 +17,19 @@ namespace wallchat.Service.Implementations
 {
     public class UserService : IUserService
     {
+        private readonly long _currentUserId = 0;
         private readonly Logger _logger;
         private readonly IUnitOfWork _unitOfWork;
         private readonly IUserRepository _userRepository;
 
         public UserService (
             IUnitOfWork unitOfWork,
-            IUserRepository userRepository )
+            IUserRepository userRepository, long currentUserId)
         {
             _logger = LogManager.GetCurrentClassLogger( );
             _unitOfWork = unitOfWork;
             _userRepository = userRepository;
+            _currentUserId = currentUserId;
         }
 
         public void DeleteUser ( long id )
