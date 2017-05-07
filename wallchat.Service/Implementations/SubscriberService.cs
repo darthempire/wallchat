@@ -5,7 +5,7 @@ using wallchat.DAL.App.Contracts;
 using wallchat.Helpers.Exceptions;
 using wallchat.Model.App.DTO.Users;
 using wallchat.Repository.App.Authorization;
-using wallchat.Repository.App.User;
+using wallchat.Repository.App;
 using wallchat.Service.Contracts;
 
 namespace wallchat.Service.Implementations

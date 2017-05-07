@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using wallchat.DAL.App.Contracts;
+﻿using wallchat.DAL.App.Contracts;
 using wallchat.DAL.App.Implementations;
 using wallchat.Model.App.EF;
 using wallchat.Model.App.Entity;

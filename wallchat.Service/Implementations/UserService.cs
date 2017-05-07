@@ -24,12 +24,11 @@ namespace wallchat.Service.Implementations
 
         public UserService (
             IUnitOfWork unitOfWork,
-            IUserRepository userRepository, long currentUserId)
+            IUserRepository userRepository)
         {
             _logger = LogManager.GetCurrentClassLogger( );
             _unitOfWork = unitOfWork;
             _userRepository = userRepository;
-            _currentUserId = currentUserId;
         }
 
         public void DeleteUser ( long id )

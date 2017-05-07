@@ -3,7 +3,7 @@ using wallchat.DAL.App.Implementations;
 using wallchat.Model.App.EF;
 using wallchat.Model.App.Entity;
 
-namespace wallchat.Repository.App.User
+namespace wallchat.Repository.App
 {
     public class SubscriberRepository : Repository<Subscriber>, ISubscriberRepository
     {
