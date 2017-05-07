@@ -1,14 +1,15 @@
 ﻿using wallchat.DAL.App.Contracts;
 using wallchat.DAL.App.Implementations;
 using wallchat.Model.App.EF;
+using wallchat.Model.App.Entity;
 
-namespace wallchat.Repository.App.File
+namespace wallchat.Repository.App.User
 {
-    public class FileRepository : Repository<Model.App.Entity.File>, IFileRepository
+    public class SubscriberRepository : Repository<Subscriber>, ISubscriberRepository
     {
         private DatabaseContext _dataContext;
 
-        public FileRepository(IDatabaseFactory databaseFactory)
+        public SubscriberRepository(IDatabaseFactory databaseFactory)
             : base(databaseFactory)
         {
             DatabaseFactory = databaseFactory;
@@ -22,7 +23,7 @@ namespace wallchat.Repository.App.File
         }
     }
 
-    public interface IFileRepository : IRepository<Model.App.Entity.File>
+    public interface ISubscriberRepository : IRepository<Subscriber>
     {
     }
 }

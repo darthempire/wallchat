@@ -50,9 +50,11 @@
   <ItemGroup>
     <Compile Include="Contracts\IArticleService.cs" />
     <Compile Include="Contracts\IFileService.cs" />
+    <Compile Include="Contracts\ISubscriberService.cs" />
     <Compile Include="Contracts\IUserService.cs" />
     <Compile Include="Implementations\ArticleService.cs" />
     <Compile Include="Implementations\FileService.cs" />
+    <Compile Include="Implementations\SubscriberService.cs" />
     <Compile Include="Implementations\UserService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

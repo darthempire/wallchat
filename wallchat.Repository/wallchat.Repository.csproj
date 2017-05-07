@@ -45,6 +45,7 @@
     <Compile Include="App\Authorization\UserRepository.cs" />
     <Compile Include="App\File\FileRepository.cs" />
     <Compile Include="App\News\ArticleRepository.cs" />
+    <Compile Include="App\User\SubscriberRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
