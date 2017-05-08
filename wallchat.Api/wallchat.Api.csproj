@@ -163,6 +163,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\ArticlesController.cs" />
     <Compile Include="Controllers\FilesController.cs" />
+    <Compile Include="Controllers\SubscriptionsController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Controllers\OrdersController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
@@ -172,6 +173,7 @@
     <Compile Include="Models\Errors\Error.cs" />
     <Compile Include="Models\News\ArticleModel.cs" />
     <Compile Include="Models\News\RegisterArticleModel.cs" />
+    <Compile Include="Models\User\SubscriberModel.cs" />
     <Compile Include="Models\User\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

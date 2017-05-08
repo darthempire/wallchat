@@ -81,6 +81,7 @@ namespace wallchat.Service.Implementations
                 _logger.Info ("Start create new user");
 
                 var users = _userRepository.GetAll( );
+                
                 if( users.FirstOrDefault (p => p.UserName == userDto.UserName) != null )
                     throw new ServiceException ("User with this UserName alredy exist. Set other UserName");
                 //if( users.FirstOrDefault (p => p.Email == userDto.Email) != null )
