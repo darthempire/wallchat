@@ -15,6 +15,12 @@ namespace wallchat.Api
             // Web API routes
             config.MapHttpAttributeRoutes( );
 
+            config.Routes.MapHttpRoute(
+                "ActionRoute",
+                "api/{controller}/{action}/{id}",
+                new { id = RouteParameter.Optional }
+            );
+
             config.Routes.MapHttpRoute (
                 "DefaultApi",
                 "api/{controller}/{id}",

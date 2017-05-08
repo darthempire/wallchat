@@ -199,6 +199,10 @@
     <Compile Include="Migrations\201705061407365_Subscribers add subscriberId.Designer.cs">
       <DependentUpon>201705061407365_Subscribers add subscriberId.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705081325317_delete User from subscribe.cs" />
+    <Compile Include="Migrations\201705081325317_delete User from subscribe.Designer.cs">
+      <DependentUpon>201705081325317_delete User from subscribe.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -217,6 +221,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201705061407365_Subscribers add subscriberId.resx">
       <DependentUpon>201705061407365_Subscribers add subscriberId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705081325317_delete User from subscribe.resx">
+      <DependentUpon>201705081325317_delete User from subscribe.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

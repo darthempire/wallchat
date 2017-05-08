@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web.Http;
 using AutoMapper;
@@ -20,6 +22,16 @@ namespace wallchat.Api.Controllers
         public UsersController ( IUserService userService )
         {
             _userService = userService;
+        }
+
+        private long CurrentUserId
+        {
+            get
+            {
+                var principal = RequestContext.Principal as ClaimsPrincipal;
+                var userId = principal?.Claims.FirstOrDefault(c => c.Type == "userId");
+                return userId != null ? Convert.ToInt64(userId?.Value) : 0;
+            }
         }
 
         //lol
