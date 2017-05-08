@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace wallchat.Model.App.DTO
+namespace wallchat.Api.Models
 {
-    public class FileDTO
+    public class FileModel
     {
         public int Id { get; set; }
         public string Name { get; set; }
@@ -13,14 +13,5 @@ namespace wallchat.Model.App.DTO
         public DateTime DeleteDate { get; set; }
         public string Description { get; set; }
         public long UserId { get; set; }
-    }
-
-    public class RegisterFileDTO
-    {
-        public long UserId { get; set; }
-        public string Name { get; set; }
-        public string Type { get; set; }
-        public string Description { get; set; }
-        public double Size { get; set; }
     }
 }

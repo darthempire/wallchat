@@ -10,10 +10,8 @@ namespace wallchat.Model.App.Entity
         public DateTime PublishDate { get; set; }
         public bool IsDelete { get; set; }
         public double Size { get; set; }
-        public DateTime DeleteDate { get; set; }
         public string Description { get; set; }
 
-        public virtual User User { get; set; }
         public long UserId { get; set; }
     }
 }

@@ -35,10 +35,45 @@ namespace wallchat.Api.Controllers
             }
         }
 
-        //все подписки
+        //все подписки текущего юзера
         // GET api/<controller>
         [Role("*")]
         public IHttpActionResult Get()
+        {
+            try
+            {
+                var subscribers = _subscriptionService.Find(Convert.ToInt64(CurrentUserId));
+                Mapper.Initialize(
+                    cfg => cfg.CreateMap<SubscriberDTO, SubscriberModel>());
+                var viewSubscribers = Mapper.Map<List<SubscriberDTO>, List<SubscriberModel>>(subscribers);
+                return Json(viewSubscribers);
+            }
+            catch (ServiceException se)
+            {
+                var error = new Error
+                {
+                    Message = se.Message,
+                    Code = 12
+                };
+                return Json(error);
+            }
+            catch (Exception ex)
+            {
+                var error = new Error
+                {
+                    Message = ex.Message,
+                    Code = 12
+                };
+                return Json(error);
+            }
+
+        }
+
+        //все подписки
+        // GET api/<controller>
+        [Role("*")]
+        [Route("getall")]
+        public IHttpActionResult GetAll()
         {
             try
             {
@@ -66,6 +101,7 @@ namespace wallchat.Api.Controllers
                 };
                 return Json(error);
             }
+
         }
 
         //получить подписку
@@ -137,7 +173,8 @@ namespace wallchat.Api.Controllers
 
 
         //подписаться на userId
-        // GET api/<controller>/subscribe
+        // POST api/<controller>/subscribe
+        // userId передовать в строке запроса
         [Route("subscribe/{userId:int}")]
         [Role("*")]
         public IHttpActionResult Subscribe(int userId)
@@ -158,7 +195,8 @@ namespace wallchat.Api.Controllers
         }
 
         //отписаться от userId
-        // GET api/<controller>/subscribe
+        // POST api/<controller>/subscribe
+        // userId передовать в строке запроса
         [Route("unsubscribe/{userId:int}")]
         [Role("*")]
         public IHttpActionResult Unsubscribe(int userId)

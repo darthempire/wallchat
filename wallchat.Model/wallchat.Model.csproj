@@ -203,6 +203,14 @@
     <Compile Include="Migrations\201705081325317_delete User from subscribe.Designer.cs">
       <DependentUpon>201705081325317_delete User from subscribe.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705082034337_del deleting date.cs" />
+    <Compile Include="Migrations\201705082034337_del deleting date.Designer.cs">
+      <DependentUpon>201705082034337_del deleting date.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705082048025_update file.cs" />
+    <Compile Include="Migrations\201705082048025_update file.Designer.cs">
+      <DependentUpon>201705082048025_update file.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -224,6 +232,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201705081325317_delete User from subscribe.resx">
       <DependentUpon>201705081325317_delete User from subscribe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705082034337_del deleting date.resx">
+      <DependentUpon>201705082034337_del deleting date.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705082048025_update file.resx">
+      <DependentUpon>201705082048025_update file.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -55,7 +55,7 @@ namespace wallchat.Api.Controllers
 
         // GET api/Account
         //[Authorize]
-        [ Role ( "user" ) ]
+        [Role("*")]
         public IHttpActionResult Get()
         {
             try
@@ -87,7 +87,7 @@ namespace wallchat.Api.Controllers
         }
 
         // GET api/Account/5
-        [ Role ("user") ]
+        [Role("*")]
         public IHttpActionResult Get ( int id )
         {
             try
@@ -119,7 +119,7 @@ namespace wallchat.Api.Controllers
         }
 
         // DELETE api/Account/5
-        [ Role ( "supermanager" ) ]
+        [Role("*")]
         [ HttpDelete ]
         public IHttpActionResult Delete ( int id )
         {
@@ -149,7 +149,7 @@ namespace wallchat.Api.Controllers
         }
 
         // PUT api/Account/5
-        [ Role ( "manager" ) ]
+        [Role("*")]
         [ HttpPut ]
         public IHttpActionResult Update ( UserUpdateModel userModel )
         {

@@ -102,12 +102,14 @@ namespace wallchat.Service.Implementations
                     .FirstOrDefault ( p => p.SubscriberId == subscriberId && p.UserId == userId );
                 if( subscribers != null )
                     throw new ServiceException ( "This variant of subscribe also created" );
-                _subscriberRepository.Add ( new Subscriber
-                {
-                    SubscriberId = subscriberId,
-                    UserId = userId,
-                    DateCreation = DateTime.Now
-                } );
+                if(_subscriberRepository.GetById (userId) != null)
+                    _subscriberRepository.Add ( new Subscriber
+                    {
+                        SubscriberId = subscriberId,
+                        UserId = userId,
+                        DateCreation = DateTime.Now
+                    } );
+                throw new ServiceException("No this user");
             }
             catch( RepositoryException rep )
             {

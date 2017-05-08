@@ -9,10 +9,10 @@ namespace wallchat.Service.Contracts
 {
     public interface IFileService
     {
-        FileDTO Find ( long id );
-        void Remove ( long id );
+        FileDTO Find (int id );
+        void Remove (int id );
         void Update ( FileDTO fileDto );
         List<FileDTO> GetAll ();
-        void Create ( RegisterFileDTO registerFileDto );
+        int Create ( RegisterFileDTO registerFileDto );
     }
 }

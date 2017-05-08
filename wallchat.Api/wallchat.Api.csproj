@@ -171,6 +171,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Errors\Error.cs" />
+    <Compile Include="Models\FileModel.cs" />
     <Compile Include="Models\News\ArticleModel.cs" />
     <Compile Include="Models\News\RegisterArticleModel.cs" />
     <Compile Include="Models\User\SubscriberModel.cs" />
